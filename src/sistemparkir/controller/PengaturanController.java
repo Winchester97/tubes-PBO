@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.EventListener;
-import javax.swing.JFrame;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import sistemparkir.view.PengaturanView;
 
@@ -21,11 +20,9 @@ import sistemparkir.view.PengaturanView;
  */
 public class PengaturanController extends MouseAdapter implements ActionListener{
     private PengaturanView pengaturan = new PengaturanView();
-    private JFrame dashboard;
     private int xx,xy;
     
-    public PengaturanController(JFrame dashboard) {
-        this.dashboard = dashboard;
+    public PengaturanController() {
         pengaturan.setLocationRelativeTo(null);
         pengaturan.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         pengaturan.setListener((EventListener) this);
@@ -35,9 +32,21 @@ public class PengaturanController extends MouseAdapter implements ActionListener
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        Object source = ae.getSource();
-        if (source.equals(pengaturan.getjButtonKembali())) {
+        Object source = ae.getActionCommand();
+        if (source.equals("Kembali")) {
             pengaturan.dispose();
+        }else if (source.equals("Edit Motor")) {
+            pengaturan.getjBtnEditMotor().setText("Simpan Motor");
+            pengaturan.setEditable("Motor", true);
+        }else if (source.equals("Edit Mobil")) {
+            pengaturan.getjBtnEditMobil().setText("Simpan Mobil");
+            pengaturan.setEditable("Mobil", true);
+        }else if (source.equals("Simpan Motor")) {
+            pengaturan.getjBtnEditMotor().setText("Edit Motor");
+            pengaturan.setEditable("Motor", false);
+        }else if (source.equals("Simpan Mobil")) {
+            pengaturan.getjBtnEditMobil().setText("Edit Mobil");
+            pengaturan.setEditable("Mobil", false);
         }
     }
 

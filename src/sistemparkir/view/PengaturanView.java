@@ -46,6 +46,7 @@ public class PengaturanView extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextKapasitasMotor = new javax.swing.JTextField();
+        jBtnEditMotor = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jTextTarifJamMobil = new javax.swing.JTextField();
         jTextTarifAwalMobil = new javax.swing.JTextField();
@@ -53,7 +54,7 @@ public class PengaturanView extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButtonSimpan = new javax.swing.JButton();
+        jBtnEditMobil = new javax.swing.JButton();
         jButtonKembali = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -92,6 +93,10 @@ public class PengaturanView extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Tarif awal");
 
+        jTextTarifAwalMotor.setEditable(false);
+
+        jTextTarifJamMotor.setEditable(false);
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Tarif per Jam");
@@ -99,6 +104,12 @@ public class PengaturanView extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Kapasitas");
+
+        jTextKapasitasMotor.setEditable(false);
+
+        jBtnEditMotor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBtnEditMotor.setForeground(new java.awt.Color(51, 51, 51));
+        jBtnEditMotor.setText("Edit Motor");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -117,6 +128,10 @@ public class PengaturanView extends javax.swing.JDialog {
                             .addComponent(jLabel4))
                         .addGap(0, 213, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jBtnEditMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,10 +148,18 @@ public class PengaturanView extends javax.swing.JDialog {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextKapasitasMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBtnEditMotor)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mobil", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(102, 102, 102))); // NOI18N
+
+        jTextTarifJamMobil.setEditable(false);
+
+        jTextTarifAwalMobil.setEditable(false);
+
+        jTextKapasitasMobil.setEditable(false);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -149,6 +172,10 @@ public class PengaturanView extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Tarif awal");
+
+        jBtnEditMobil.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBtnEditMobil.setForeground(new java.awt.Color(51, 51, 51));
+        jBtnEditMobil.setText("Edit Mobil");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -165,13 +192,17 @@ public class PengaturanView extends javax.swing.JDialog {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 209, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jBtnEditMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextTarifAwalMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,12 +214,10 @@ public class PengaturanView extends javax.swing.JDialog {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextKapasitasMobil, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBtnEditMobil)
                 .addContainerGap())
         );
-
-        jButtonSimpan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonSimpan.setForeground(new java.awt.Color(51, 51, 51));
-        jButtonSimpan.setText("Simpan");
 
         jButtonKembali.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonKembali.setForeground(new java.awt.Color(51, 51, 51));
@@ -200,29 +229,24 @@ public class PengaturanView extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButtonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(228, 228, 228))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(294, 294, 294)
+                .addComponent(jButtonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSimpan)
-                    .addComponent(jButtonKembali))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonKembali)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -292,8 +316,9 @@ public class PengaturanView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnEditMobil;
+    private javax.swing.JButton jBtnEditMotor;
     private javax.swing.JButton jButtonKembali;
-    private javax.swing.JButton jButtonSimpan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -314,10 +339,6 @@ public class PengaturanView extends javax.swing.JDialog {
     private javax.swing.JPanel topPanePengaturan;
     // End of variables declaration//GEN-END:variables
 
-    
-    public JButton getjButtonSimpan() {
-        return jButtonSimpan;
-    }
 
     public JTextField getjTextKapasitasMobil() {
         return jTextKapasitasMobil;
@@ -346,16 +367,62 @@ public class PengaturanView extends javax.swing.JDialog {
     public JButton getjButtonKembali() {
         return jButtonKembali;
     }
+
+    public JButton getjBtnEditMobil() {
+        return jBtnEditMobil;
+    }
+
+    public JButton getjBtnEditMotor() {
+        return jBtnEditMotor;
+    }
+    
     
     public JPanel getTopPanePengaturan() {
         return topPanePengaturan;
     }
 
+    public void setjTextKapasitasMobil(JTextField jTextKapasitasMobil) {
+        this.jTextKapasitasMobil = jTextKapasitasMobil;
+    }
+
+    public void setjTextKapasitasMotor(JTextField jTextKapasitasMotor) {
+        this.jTextKapasitasMotor = jTextKapasitasMotor;
+    }
+
+    public void setjTextTarifAwalMobil(JTextField jTextTarifAwalMobil) {
+        this.jTextTarifAwalMobil = jTextTarifAwalMobil;
+    }
+
+    public void setjTextTarifAwalMotor(JTextField jTextTarifAwalMotor) {
+        this.jTextTarifAwalMotor = jTextTarifAwalMotor;
+    }
+
+    public void setjTextTarifJamMobil(JTextField jTextTarifJamMobil) {
+        this.jTextTarifJamMobil = jTextTarifJamMobil;
+    }
+
+    public void setjTextTarifJamMotor(JTextField jTextTarifJamMotor) {
+        this.jTextTarifJamMotor = jTextTarifJamMotor;
+    }
+    
+    public void setEditable(String kendaraan, boolean b){
+        if (kendaraan == "Motor"){
+            jTextTarifAwalMotor.setEditable(b);
+            jTextTarifJamMotor.setEditable(b);
+            jTextKapasitasMotor.setEditable(b);
+        }else if (kendaraan == "Mobil") {
+            jTextTarifAwalMobil.setEditable(b);
+            jTextTarifJamMobil.setEditable(b);
+            jTextKapasitasMobil.setEditable(b);
+        }
+    }
     
     public void setListener(EventListener event){
-        jButtonSimpan.addActionListener((ActionListener) event);
+        jBtnEditMotor.addActionListener((ActionListener) event);
+        jBtnEditMobil.addActionListener((ActionListener) event);
         jButtonKembali.addActionListener((ActionListener) event);
         topPanePengaturan.addMouseListener((MouseListener) event);
         topPanePengaturan.addMouseMotionListener((MouseMotionListener) event);
+        
     }
 }

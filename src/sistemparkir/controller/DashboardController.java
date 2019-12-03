@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import sistemparkir.database.DatabaseMySQL;
 import sistemparkir.view.DashboardView;
 
 /**
@@ -72,7 +73,11 @@ public class DashboardController extends MouseAdapter{
             xx = e.getX();
             xy = e.getY();
         }else if (source.equals(pengaturan)) {
-            new PengaturanController(dashboard);
+            if (!DatabaseMySQL.isConnect()) {
+                JOptionPane.showMessageDialog(dashboard, "Gagal Terkoneksi dengan database","DATABASE FAILED",JOptionPane.ERROR_MESSAGE);
+            }else{
+                new PengaturanController();
+            }
         }
     }
 

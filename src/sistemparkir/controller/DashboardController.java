@@ -21,6 +21,8 @@ public class DashboardController extends MouseAdapter{
     private JPanel pendapatan = dashboard.getPendapatan();
     private JPanel pengaturan = dashboard.getPengaturan();
     private JPanel keluar = dashboard.getKeluar();
+    private JPanel topPanel = dashboard.getTopPanel();
+    private int xx,xy;
 
     public DashboardController() {
         dashboard.setLocationRelativeTo(null);
@@ -38,7 +40,7 @@ public class DashboardController extends MouseAdapter{
             dashboard.setColor(pendapatan);
         }else if (source.equals(pengaturan)) {
             dashboard.setColor(pengaturan);
-        }else{
+        }else if (source.equals(keluar)){
             dashboard.setColor(keluar);
         }
     }
@@ -62,8 +64,19 @@ public class DashboardController extends MouseAdapter{
         Object source = e.getSource();
         if (source.equals(keluar)) {
             System.exit(0);
+        }else if (source.equals(topPanel)) {
+            xx = e.getX();
+            xy = e.getY();
         }
     }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        int x = e.getXOnScreen();
+        int y = e.getYOnScreen();
+        dashboard.setLocation(x-xx,y-xy);
+    }
+    
     
     
     

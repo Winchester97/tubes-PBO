@@ -106,10 +106,6 @@
               <Color id="Default Cursor"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="TopPanelMouseDragged"/>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TopPanelMousePressed"/>
-          </Events>
 
           <Layout>
             <DimensionLayout dim="0">

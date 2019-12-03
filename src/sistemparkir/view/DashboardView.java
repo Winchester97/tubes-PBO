@@ -5,10 +5,8 @@
  */
 package sistemparkir.view;
 
-import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.EventListener;
 import javax.swing.JPanel;
 
@@ -73,16 +71,6 @@ public class DashboardView extends javax.swing.JFrame {
 
         TopPanel.setBackground(new java.awt.Color(51, 0, 255));
         TopPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        TopPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                TopPanelMouseDragged(evt);
-            }
-        });
-        TopPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                TopPanelMousePressed(evt);
-            }
-        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-logo.png"))); // NOI18N
 
@@ -260,19 +248,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private int xx,xy;
-    private void TopPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TopPanelMousePressed
-        xx = evt.getX();
-        xy = evt.getY();
-    }//GEN-LAST:event_TopPanelMousePressed
-
-    private void TopPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TopPanelMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
-    }//GEN-LAST:event_TopPanelMouseDragged
-       
+           
     public void setColor(JPanel panel)
      {
          panel.setBackground(new java.awt.Color(204,204,204));
@@ -308,7 +284,9 @@ public class DashboardView extends javax.swing.JFrame {
         Parkir.addMouseListener((MouseAdapter) event);
         pendapatan.addMouseListener((MouseAdapter) event);
         pengaturan.addMouseListener((MouseAdapter) event);
-        keluar.addMouseListener((MouseAdapter) event);        
+        keluar.addMouseListener((MouseAdapter) event);
+        TopPanel.addMouseListener((MouseAdapter) event);
+        TopPanel.addMouseMotionListener((MouseMotionListener) event);
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -335,10 +313,8 @@ public class DashboardView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DashboardView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new DashboardView().setVisible(true);
         });
     }
     

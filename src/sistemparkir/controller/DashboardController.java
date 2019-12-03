@@ -5,9 +5,9 @@
  */
 package sistemparkir.controller;
 
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import sistemparkir.view.DashboardView;
 
@@ -63,10 +63,16 @@ public class DashboardController extends MouseAdapter{
     public void mousePressed(MouseEvent e) {
         Object source = e.getSource();
         if (source.equals(keluar)) {
-            System.exit(0);
+            int dialogBtn = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(dashboard, "Anda yakin akan keluar?", "PERINGATAN", dialogBtn);
+            if (dialogResult == 0) {
+                System.exit(0);
+            }
         }else if (source.equals(topPanel)) {
             xx = e.getX();
             xy = e.getY();
+        }else if (source.equals(pengaturan)) {
+            new PengaturanController(dashboard);
         }
     }
 
@@ -75,9 +81,5 @@ public class DashboardController extends MouseAdapter{
         int x = e.getXOnScreen();
         int y = e.getYOnScreen();
         dashboard.setLocation(x-xx,y-xy);
-    }
-    
-    
-    
-    
+    }   
 }

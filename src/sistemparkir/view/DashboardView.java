@@ -5,6 +5,11 @@
  */
 package sistemparkir.view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
+import java.util.EventListener;
 import javax.swing.JPanel;
 
 /**
@@ -29,6 +34,7 @@ public class DashboardView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         TopPanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -46,14 +52,37 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 255));
         setLocationByPlatform(true);
+        setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         TopPanel.setBackground(new java.awt.Color(51, 0, 255));
+        TopPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TopPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                TopPanelMouseDragged(evt);
+            }
+        });
+        TopPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TopPanelMousePressed(evt);
+            }
+        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-logo.png"))); // NOI18N
 
@@ -70,28 +99,20 @@ public class DashboardView extends javax.swing.JFrame {
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(528, Short.MAX_VALUE))
         );
         TopPanelLayout.setVerticalGroup(
             TopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopPanelLayout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopPanelLayout.createSequentialGroup()
+            .addGroup(TopPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(40, 40, 40))
         );
 
         Parkir.setAutoscrolls(true);
-        Parkir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ParkirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ParkirMouseExited(evt);
-            }
-        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-parkir.png"))); // NOI18N
 
@@ -119,15 +140,6 @@ public class DashboardView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pendapatan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pendapatanMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pendapatanMouseExited(evt);
-            }
-        });
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-pendapatan.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -154,15 +166,6 @@ public class DashboardView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pengaturan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                pengaturanMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                pengaturanMouseExited(evt);
-            }
-        });
-
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-pengaturan.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -188,15 +191,6 @@ public class DashboardView extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addContainerGap())
         );
-
-        keluar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                keluarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                keluarMouseExited(evt);
-            }
-        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-keluar.png"))); // NOI18N
 
@@ -266,39 +260,19 @@ public class DashboardView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ParkirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ParkirMouseEntered
-        setColor(Parkir);
-    }//GEN-LAST:event_ParkirMouseEntered
-
-    private void ParkirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ParkirMouseExited
-        resetColor(Parkir);
-    }//GEN-LAST:event_ParkirMouseExited
-
-    private void pendapatanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendapatanMouseEntered
-        setColor(pendapatan);
-    }//GEN-LAST:event_pendapatanMouseEntered
-
-    private void pendapatanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pendapatanMouseExited
-        resetColor(pendapatan);
-    }//GEN-LAST:event_pendapatanMouseExited
-
-    private void pengaturanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pengaturanMouseEntered
-        setColor(pengaturan);
-    }//GEN-LAST:event_pengaturanMouseEntered
-
-    private void pengaturanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pengaturanMouseExited
-        resetColor(pengaturan);
-    }//GEN-LAST:event_pengaturanMouseExited
-
-    private void keluarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_keluarMouseEntered
-        setColor(keluar);
-    }//GEN-LAST:event_keluarMouseEntered
-
-    private void keluarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_keluarMouseExited
-        resetColor(keluar);
-    }//GEN-LAST:event_keluarMouseExited
     
+    private int xx,xy;
+    private void TopPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TopPanelMousePressed
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_TopPanelMousePressed
+
+    private void TopPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TopPanelMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_TopPanelMouseDragged
+       
     public void setColor(JPanel panel)
      {
          panel.setBackground(new java.awt.Color(204,204,204));
@@ -308,9 +282,34 @@ public class DashboardView extends javax.swing.JFrame {
      {
          panel.setBackground(new java.awt.Color(240,240,240));
      }
-    /**
-     * @param args the command line arguments
-     */
+   
+     
+    public JPanel getParkir() {
+        return Parkir;
+    }
+
+    public JPanel getTopPanel() {
+        return TopPanel;
+    }
+
+    public JPanel getPendapatan() {
+        return pendapatan;
+    }
+
+    public JPanel getPengaturan() {
+        return pengaturan;
+    }
+
+    public JPanel getKeluar() {
+        return keluar;
+    }
+    
+    public void setListener(EventListener event){
+        Parkir.addMouseListener((MouseAdapter) event);
+        pendapatan.addMouseListener((MouseAdapter) event);
+        pengaturan.addMouseListener((MouseAdapter) event);
+        keluar.addMouseListener((MouseAdapter) event);        
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -342,7 +341,7 @@ public class DashboardView extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Parkir;
     private javax.swing.JPanel TopPanel;
@@ -357,6 +356,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel keluar;
     private javax.swing.JPanel pendapatan;
     private javax.swing.JPanel pengaturan;

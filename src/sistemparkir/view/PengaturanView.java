@@ -341,27 +341,52 @@ public class PengaturanView extends javax.swing.JDialog {
 
 
     public int getjTextKapasitasMobil() {
-        return Integer.valueOf(jTextKapasitasMobil.getText());
+        try {
+            return Integer.valueOf(jTextKapasitasMobil.getText());
+ 
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     public int getjTextKapasitasMotor() {
-        return Integer.valueOf(jTextKapasitasMotor.getText());
+        try {
+            return Integer.valueOf(jTextKapasitasMotor.getText());
+       } catch (Exception e) {
+            return 0;
+        }
     }
 
     public Float getjTextTarifAwalMobil() {
-        return Float.valueOf(jTextTarifAwalMobil.getText());
+        try {
+            return Float.valueOf(jTextTarifAwalMobil.getText());    
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public Float getjTextTarifAwalMotor() {
-        return Float.valueOf(jTextTarifAwalMotor.getText());
+        try {
+            return Float.valueOf(jTextTarifAwalMotor.getText());
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public Float getjTextTarifJamMobil() {
-        return Float.valueOf(jTextTarifJamMobil.getText());
+        try {
+            return Float.valueOf(jTextTarifJamMobil.getText());
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public Float getjTextTarifJamMotor() {
-        return Float.valueOf(jTextTarifJamMotor.getText());
+        try {
+            return Float.valueOf(jTextTarifJamMotor.getText());
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public JButton getjButtonKembali() {

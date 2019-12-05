@@ -17,10 +17,10 @@ public interface pengaturan {
     
     public int getKapasitas();
     
-    public void setTarifAwal();
+    public void setTarifAwal(Float tarifAwal);
     
-    public void setTarifPerJam();
+    public void setTarifPerJam(Float tarifJam);
     
-    public void setKapasitas();
+    public void setKapasitas(int kapasitas);
     
 }

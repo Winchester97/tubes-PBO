@@ -6,11 +6,12 @@
 package sistemparkir.model;
 import java.sql.*;
 import sistemparkir.database.DatabaseMySQL;
+
 /**
  *
  * @author 62822
  */
-public class MotorModel implements pengaturan{
+public class MobilModel implements pengaturan{
     private Connection konek;
     private Statement st;
     private ResultSet rs;
@@ -20,10 +21,10 @@ public class MotorModel implements pengaturan{
         try {
             konek = DatabaseMySQL.getConnection();
             st = konek.createStatement();
-            String query = "SELECT tarif_awal_motor FROM pengaturan";
+            String query = "SELECT tarif_awal_mobil FROM pengaturan";
             rs = st.executeQuery(query);
             if (rs.next()) {
-                return rs.getFloat("tarif_awal_motor");
+                return rs.getFloat("tarif_awal_mobil");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,10 +37,10 @@ public class MotorModel implements pengaturan{
         try {
             konek = DatabaseMySQL.getConnection();
             st = konek.createStatement();
-            String query = "SELECT tarif_jam_motor FROM pengaturan";
+            String query = "SELECT tarif_jam_mobil FROM pengaturan";
             rs = st.executeQuery(query);
             if (rs.next()) {
-                return rs.getFloat("tarif_jam_motor");
+                return rs.getFloat("tarif_jam_mobil");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,10 +53,10 @@ public class MotorModel implements pengaturan{
         try {
             konek = DatabaseMySQL.getConnection();
             st = konek.createStatement();
-            String query = "SELECT kapasitas_motor FROM pengaturan";
+            String query = "SELECT kapasitas_mobil FROM pengaturan";
             rs = st.executeQuery(query);
             if (rs.next()) {
-                return rs.getInt("kapasitas_motor");
+                return rs.getInt("kapasitas_mobil");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +68,7 @@ public class MotorModel implements pengaturan{
     public void setTarifAwal(Float tarifAwal) {
          try {
             konek = DatabaseMySQL.getConnection(); 
-            String query = "UPDATE pengaturan SET tarif_awal_motor=?";
+            String query = "UPDATE pengaturan SET tarif_awal_mobil=?";
             PreparedStatement ps = konek.prepareStatement(query);
             ps.setFloat(1, tarifAwal);
             ps.executeUpdate();
@@ -80,7 +81,7 @@ public class MotorModel implements pengaturan{
     public void setTarifPerJam(Float tarifJam) {
          try {
             konek = DatabaseMySQL.getConnection(); 
-            String query = "UPDATE pengaturan SET tarif_jam_motor=?";
+            String query = "UPDATE pengaturan SET tarif_jam_mobil=?";
             PreparedStatement ps = konek.prepareStatement(query);
             ps.setFloat(1, tarifJam);
             ps.executeUpdate();
@@ -93,7 +94,7 @@ public class MotorModel implements pengaturan{
     public void setKapasitas(int kapasitas) {
          try {
             konek = DatabaseMySQL.getConnection(); 
-            String query = "UPDATE pengaturan SET kapasitas_motor=?";
+            String query = "UPDATE pengaturan SET kapasitas_mobil=?";
             PreparedStatement ps = konek.prepareStatement(query);
             ps.setInt(1, kapasitas);
             ps.executeUpdate();
@@ -102,5 +103,5 @@ public class MotorModel implements pengaturan{
         } 
     }
 
-    
+
 }

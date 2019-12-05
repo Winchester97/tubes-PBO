@@ -340,28 +340,28 @@ public class PengaturanView extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
 
-    public JTextField getjTextKapasitasMobil() {
-        return jTextKapasitasMobil;
+    public int getjTextKapasitasMobil() {
+        return Integer.valueOf(jTextKapasitasMobil.getText());
     }
 
-    public JTextField getjTextKapasitasMotor() {
-        return jTextKapasitasMotor;
+    public int getjTextKapasitasMotor() {
+        return Integer.valueOf(jTextKapasitasMotor.getText());
     }
 
-    public JTextField getjTextTarifAwalMobil() {
-        return jTextTarifAwalMobil;
+    public Float getjTextTarifAwalMobil() {
+        return Float.valueOf(jTextTarifAwalMobil.getText());
     }
 
-    public JTextField getjTextTarifAwalMotor() {
-        return jTextTarifAwalMotor;
+    public Float getjTextTarifAwalMotor() {
+        return Float.valueOf(jTextTarifAwalMotor.getText());
     }
 
-    public JTextField getjTextTarifJamMobil() {
-        return jTextTarifJamMobil;
+    public Float getjTextTarifJamMobil() {
+        return Float.valueOf(jTextTarifJamMobil.getText());
     }
 
-    public JTextField getjTextTarifJamMotor() {
-        return jTextTarifJamMotor;
+    public Float getjTextTarifJamMotor() {
+        return Float.valueOf(jTextTarifJamMotor.getText());
     }
 
     public JButton getjButtonKembali() {
@@ -381,28 +381,28 @@ public class PengaturanView extends javax.swing.JDialog {
         return topPanePengaturan;
     }
 
-    public void setjTextKapasitasMobil(JTextField jTextKapasitasMobil) {
-        this.jTextKapasitasMobil = jTextKapasitasMobil;
+    public void setjTextKapasitasMobil(int jTextKapasitasMobil) {
+        this.jTextKapasitasMobil.setText(String.valueOf(jTextKapasitasMobil));
     }
 
-    public void setjTextKapasitasMotor(JTextField jTextKapasitasMotor) {
-        this.jTextKapasitasMotor = jTextKapasitasMotor;
+    public void setjTextKapasitasMotor(int jTextKapasitasMotor) {
+        this.jTextKapasitasMotor.setText(String.valueOf(jTextKapasitasMotor));
     }
 
-    public void setjTextTarifAwalMobil(JTextField jTextTarifAwalMobil) {
-        this.jTextTarifAwalMobil = jTextTarifAwalMobil;
+    public void setjTextTarifAwalMobil(Float jTextTarifAwalMobil) {
+        this.jTextTarifAwalMobil.setText(String.valueOf(jTextTarifAwalMobil));
     }
 
-    public void setjTextTarifAwalMotor(JTextField jTextTarifAwalMotor) {
-        this.jTextTarifAwalMotor = jTextTarifAwalMotor;
+    public void setjTextTarifAwalMotor(Float jTextTarifAwalMotor) {
+        this.jTextTarifAwalMotor.setText(String.valueOf(jTextTarifAwalMotor));
     }
 
-    public void setjTextTarifJamMobil(JTextField jTextTarifJamMobil) {
-        this.jTextTarifJamMobil = jTextTarifJamMobil;
+    public void setjTextTarifJamMobil(Float jTextTarifJamMobil) {
+        this.jTextTarifJamMobil.setText(String.valueOf(jTextTarifJamMobil));
     }
 
-    public void setjTextTarifJamMotor(JTextField jTextTarifJamMotor) {
-        this.jTextTarifJamMotor = jTextTarifJamMotor;
+    public void setjTextTarifJamMotor(Float jTextTarifJamMotor) {
+        this.jTextTarifJamMotor.setText(String.valueOf(jTextTarifJamMotor));
     }
     
     public void setEditable(String kendaraan, boolean b){

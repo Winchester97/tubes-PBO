@@ -63,4 +63,7 @@ public class PengaturanController extends MouseAdapter implements ActionListener
         pengaturan.setLocation(x-xx,y-xy);
     }
     
+    public void initView(){
+        pengaturan.setjTextTarifAwalMotor(Float.NEGATIVE_INFINITY); //belum
+    }
 }

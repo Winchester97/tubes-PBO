@@ -78,6 +78,8 @@ public class DashboardController extends MouseAdapter{
             }else{
                 new PengaturanController();
             }
+        }else if (source.equals(parkir)) {
+            new ParkirController();
         }
     }
 

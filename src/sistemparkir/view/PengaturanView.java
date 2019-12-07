@@ -11,8 +11,6 @@ import java.awt.event.MouseMotionListener;
 import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 /**
  *
  * @author 62822

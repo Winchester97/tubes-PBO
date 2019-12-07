@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import sistemparkir.view.ParkirView;
 
@@ -19,9 +20,9 @@ import sistemparkir.view.ParkirView;
  */
 public class ParkirController extends MouseAdapter implements ActionListener{
     private ParkirView parkir = new ParkirView();
-    JButton masuk = parkir.getjButtonMasuk();
-    JButton keluar = parkir.getjButtonKeluar();    
-
+    private JButton masuk = parkir.getjButtonMasuk();
+    private JButton keluar = parkir.getjButtonKeluar();    
+    
     public ParkirController() {
         parkir.setLocationRelativeTo(null);
         parkir.setListener(this);
@@ -32,12 +33,15 @@ public class ParkirController extends MouseAdapter implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         Object source = event.getActionCommand();
+        JTextField noPolMasuk = parkir.getNoPolMasuk();
         if (source.equals("MASUK")) {
             parkir.getKeluarPane().setVisible(false);
             parkir.getMasukPane().setVisible(true);
         }else if (source.equals("KELUAR")) {
             parkir.getMasukPane().setVisible(false);
             parkir.getKeluarPane().setVisible(true);
+        }else if (source.equals("Simpan")) {
+            
         }
     }
 

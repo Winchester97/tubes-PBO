@@ -137,7 +137,7 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/sistemparkir/icon/icon-logo.png"/>
+                  <Image iconType="3" name="/sistemparkir/view/icon/icon-logo.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -188,7 +188,7 @@
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/sistemparkir/icon/icon-parkir.png"/>
+                  <Image iconType="3" name="/sistemparkir/view/icon/icon-parkir.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -233,7 +233,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/sistemparkir/icon/icon-pendapatan.png"/>
+                  <Image iconType="3" name="/sistemparkir/view/icon/icon-pendapatan.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -278,7 +278,7 @@
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/sistemparkir/icon/icon-pengaturan.png"/>
+                  <Image iconType="3" name="/sistemparkir/view/icon/icon-pengaturan.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -323,7 +323,7 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/sistemparkir/icon/icon-keluar.png"/>
+                  <Image iconType="3" name="/sistemparkir/view/icon/icon-keluar.png"/>
                 </Property>
               </Properties>
             </Component>

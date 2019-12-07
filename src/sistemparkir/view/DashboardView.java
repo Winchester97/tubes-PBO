@@ -72,7 +72,7 @@ public class DashboardView extends javax.swing.JFrame {
         TopPanel.setBackground(new java.awt.Color(51, 0, 255));
         TopPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-logo.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/view/icon/icon-logo.png"))); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,7 +102,7 @@ public class DashboardView extends javax.swing.JFrame {
 
         Parkir.setAutoscrolls(true);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-parkir.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/view/icon/icon-parkir.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Parkir");
@@ -128,7 +128,7 @@ public class DashboardView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-pendapatan.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/view/icon/icon-pendapatan.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Pendapatan");
@@ -154,7 +154,7 @@ public class DashboardView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-pengaturan.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/view/icon/icon-pengaturan.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Pengaturan");
@@ -180,7 +180,7 @@ public class DashboardView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/icon/icon-keluar.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistemparkir/view/icon/icon-keluar.png"))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Keluar");

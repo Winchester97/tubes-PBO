@@ -66,23 +66,23 @@ public class PengaturanView extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Pengaturan");
+        jLabel1.setText("PENGATURAN");
 
         javax.swing.GroupLayout topPanePengaturanLayout = new javax.swing.GroupLayout(topPanePengaturan);
         topPanePengaturan.setLayout(topPanePengaturanLayout);
         topPanePengaturanLayout.setHorizontalGroup(
             topPanePengaturanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanePengaturanLayout.createSequentialGroup()
-                .addGap(261, 261, 261)
+                .addGap(232, 232, 232)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topPanePengaturanLayout.setVerticalGroup(
             topPanePengaturanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanePengaturanLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153)), "Umum", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18), new java.awt.Color(102, 102, 102))); // NOI18N

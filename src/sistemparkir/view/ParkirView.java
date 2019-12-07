@@ -8,8 +8,11 @@ package sistemparkir.view;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.EventListener;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -43,31 +46,31 @@ public class ParkirView extends javax.swing.JFrame {
         card = new javax.swing.JPanel();
         masukPane = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        noPolMasuk = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         motor = new javax.swing.JRadioButton();
         mobil = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        simpanMasuk = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tableMasuk = new javax.swing.JTable();
         keluarPane = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        cariKeluar = new javax.swing.JTextField();
+        jBtnCariKeluar = new javax.swing.JButton();
+        jTextNopol = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextJenis = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jTextDurasi = new javax.swing.JTextField();
+        jTextBiaya = new javax.swing.JTextField();
+        jTextTglJamMasuk = new javax.swing.JTextField();
+        jBtnParkirKeluar = new javax.swing.JButton();
+        jBtnBersihkan = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tableKeluar = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -105,19 +108,12 @@ public class ParkirView extends javax.swing.JFrame {
         jButtonKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonKeluar.setText("KELUAR");
         jButtonKeluar.setBorderPainted(false);
-        jButtonKeluar.setFocusPainted(false);
         jButtonKeluar.setIconTextGap(15);
-        jButtonKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKeluarActionPerformed(evt);
-            }
-        });
 
         jButtonMasuk.setBackground(new java.awt.Color(204, 204, 255));
         jButtonMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonMasuk.setText("MASUK");
         jButtonMasuk.setBorderPainted(false);
-        jButtonMasuk.setFocusPainted(false);
         jButtonMasuk.setIconTextGap(15);
 
         javax.swing.GroupLayout sidePaneLayout = new javax.swing.GroupLayout(sidePane);
@@ -145,7 +141,7 @@ public class ParkirView extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("No. Polisi              :");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        noPolMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Jenis Kendaraan  :");
@@ -158,9 +154,10 @@ public class ParkirView extends javax.swing.JFrame {
         jenisKendaraan.add(mobil);
         mobil.setText("Mobil");
 
-        jButton1.setText("Simpan");
+        simpanMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        simpanMasuk.setText("Simpan");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tableMasuk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -176,7 +173,7 @@ public class ParkirView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tableMasuk);
 
         javax.swing.GroupLayout masukPaneLayout = new javax.swing.GroupLayout(masukPane);
         masukPane.setLayout(masukPaneLayout);
@@ -193,8 +190,8 @@ public class ParkirView extends javax.swing.JFrame {
                         .addComponent(motor)
                         .addGap(18, 18, 18)
                         .addComponent(mobil))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(noPolMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(simpanMasuk, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
         );
@@ -204,15 +201,15 @@ public class ParkirView extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(noPolMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(motor)
                     .addComponent(mobil))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addComponent(simpanMasuk)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -223,21 +220,20 @@ public class ParkirView extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("No. Polisi / No. Tiket      :");
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cariKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("CARI");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jBtnCariKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBtnCariKeluar.setText("CARI");
+
+        jTextNopol.setEditable(false);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Jenis Kendaraan : ");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("No. Polisi             :");
+
+        jTextJenis.setEditable(false);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Tgl / jam Masuk : ");
@@ -248,31 +244,19 @@ public class ParkirView extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Biaya                    :");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
+        jTextDurasi.setEditable(false);
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
+        jTextBiaya.setEditable(false);
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
+        jTextTglJamMasuk.setEditable(false);
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Parkir Keluar");
+        jBtnParkirKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBtnParkirKeluar.setText("Parkir Keluar");
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton5.setText("Bersihkan");
+        jBtnBersihkan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jBtnBersihkan.setText("Bersihkan");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tableKeluar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -288,7 +272,7 @@ public class ParkirView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tableKeluar);
 
         javax.swing.GroupLayout keluarPaneLayout = new javax.swing.GroupLayout(keluarPane);
         keluarPane.setLayout(keluarPaneLayout);
@@ -297,12 +281,12 @@ public class ParkirView extends javax.swing.JFrame {
             .addGroup(keluarPaneLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnCariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(keluarPaneLayout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addGap(26, 26, 26)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(keluarPaneLayout.createSequentialGroup()
                             .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -312,15 +296,15 @@ public class ParkirView extends javax.swing.JFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(18, 18, 18)
                             .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))))
+                                .addComponent(jTextNopol)
+                                .addComponent(jTextJenis, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                .addComponent(jTextDurasi, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                .addComponent(jTextBiaya, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                .addComponent(jTextTglJamMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jBtnParkirKeluar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(jBtnBersihkan)
                 .addGap(27, 27, 27))
             .addComponent(jScrollPane3)
         );
@@ -330,33 +314,33 @@ public class ParkirView extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnCariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextNopol, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, keluarPaneLayout.createSequentialGroup()
                         .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextJenis, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextTglJamMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextDurasi, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(45, 45, 45))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextBiaya, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11)
-                        .addComponent(jButton3)
-                        .addComponent(jButton5)))
+                        .addComponent(jBtnParkirKeluar)
+                        .addComponent(jBtnBersihkan)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -380,33 +364,13 @@ public class ParkirView extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sidePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(card, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(card, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel1, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKeluarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonKeluarActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,10 +409,10 @@ public class ParkirView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel card;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JTextField cariKeluar;
+    private javax.swing.JButton jBtnBersihkan;
+    private javax.swing.JButton jBtnCariKeluar;
+    private javax.swing.JButton jBtnParkirKeluar;
     private javax.swing.JButton jButtonKeluar;
     private javax.swing.JButton jButtonMasuk;
     private javax.swing.JLabel jLabel1;
@@ -463,21 +427,21 @@ public class ParkirView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextBiaya;
+    private javax.swing.JTextField jTextDurasi;
+    private javax.swing.JTextField jTextJenis;
+    private javax.swing.JTextField jTextNopol;
+    private javax.swing.JTextField jTextTglJamMasuk;
     private javax.swing.ButtonGroup jenisKendaraan;
     private javax.swing.JPanel keluarPane;
     private javax.swing.JPanel masukPane;
     private javax.swing.JRadioButton mobil;
     private javax.swing.JRadioButton motor;
+    private javax.swing.JTextField noPolMasuk;
     private javax.swing.JPanel sidePane;
+    private javax.swing.JButton simpanMasuk;
+    private javax.swing.JTable tableKeluar;
+    private javax.swing.JTable tableMasuk;
     private javax.swing.JPanel topPaneParkir;
     // End of variables declaration//GEN-END:variables
 
@@ -500,12 +464,72 @@ public class ParkirView extends javax.swing.JFrame {
     public JPanel getMasukPane() {
         return masukPane;
     }
+
+    public JTextField getCariKeluar() {
+        return cariKeluar;
+    }
+
+    public JButton getjBtnBersihkan() {
+        return jBtnBersihkan;
+    }
+
+    public JButton getjBtnKeluar() {
+        return jBtnCariKeluar;
+    }
+
+    public JButton getjBtnParkirKeluar() {
+        return jBtnParkirKeluar;
+    }
+
+    public JTextField getjTextBiaya() {
+        return jTextBiaya;
+    }
+
+    public JTextField getjTextDurasi() {
+        return jTextDurasi;
+    }
+
+    public JTextField getjTextJenis() {
+        return jTextJenis;
+    }
+
+    public JTextField getjTextNopol() {
+        return jTextNopol;
+    }
+
+    public JTextField getjTextTglJamMasuk() {
+        return jTextTglJamMasuk;
+    }
+
+    public ButtonGroup getJenisKendaraan() {
+        return jenisKendaraan;
+    }
+
+    public JTextField getNoPolMasuk() {
+        return noPolMasuk;
+    }
+
+    public JButton getSimpanMasuk() {
+        return simpanMasuk;
+    }
+
+    public JTable getTableKeluar() {
+        return tableKeluar;
+    }
+
+    public JTable getTableMasuk() {
+        return tableMasuk;
+    }
     
     public void setListener(EventListener event){
         jButtonMasuk.addActionListener((ActionListener) event);
         jButtonMasuk.addMouseListener((MouseListener) event);
         jButtonKeluar.addActionListener((ActionListener) event);
         jButtonKeluar.addMouseListener((MouseListener) event);
+        simpanMasuk.addActionListener((ActionListener) event);
+        jBtnCariKeluar.addActionListener((ActionListener) event);
+        jBtnParkirKeluar.addActionListener((ActionListener) event);
+        jBtnBersihkan.addActionListener((ActionListener) event);
     }
     
      public void setColor(JButton btn)

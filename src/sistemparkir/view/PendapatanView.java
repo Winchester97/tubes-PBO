@@ -5,6 +5,8 @@
  */
 package sistemparkir.view;
 
+import java.awt.event.ActionListener;
+import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -50,6 +52,7 @@ public class PendapatanView extends javax.swing.JFrame {
         jComboTahun = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         topPaneParkir.setBackground(new java.awt.Color(0, 0, 203));
 
@@ -290,6 +293,9 @@ public class PendapatanView extends javax.swing.JFrame {
         return jTextPdptnHari;
     }
     
+    public void setListener(EventListener event){
+        jButtonBulanOK.addActionListener((ActionListener) event);
+    }
 }
 
 

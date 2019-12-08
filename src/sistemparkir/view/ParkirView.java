@@ -11,6 +11,7 @@ import java.util.EventListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -71,6 +72,8 @@ public class ParkirView extends javax.swing.JFrame {
         jBtnBersihkan = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableKeluar = new javax.swing.JTable();
+        jTextNoTiket = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -142,6 +145,11 @@ public class ParkirView extends javax.swing.JFrame {
         jLabel4.setText("No. Polisi              :");
 
         noPolMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        noPolMasuk.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                noPolMasukKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Jenis Kendaraan  :");
@@ -252,9 +260,11 @@ public class ParkirView extends javax.swing.JFrame {
 
         jBtnParkirKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBtnParkirKeluar.setText("Parkir Keluar");
+        jBtnParkirKeluar.setEnabled(false);
 
         jBtnBersihkan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBtnBersihkan.setText("Bersihkan");
+        jBtnBersihkan.setEnabled(false);
 
         tableKeluar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -274,6 +284,11 @@ public class ParkirView extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tableKeluar);
 
+        jTextNoTiket.setEditable(false);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("No. Tiket             :");
+
         javax.swing.GroupLayout keluarPaneLayout = new javax.swing.GroupLayout(keluarPane);
         keluarPane.setLayout(keluarPaneLayout);
         keluarPaneLayout.setHorizontalGroup(
@@ -292,15 +307,19 @@ public class ParkirView extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(keluarPaneLayout.createSequentialGroup()
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(25, 25, 25)))
                             .addGap(18, 18, 18)
                             .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextNopol)
                                 .addComponent(jTextJenis, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                                 .addComponent(jTextDurasi, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                                 .addComponent(jTextBiaya, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextTglJamMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))))
+                                .addComponent(jTextTglJamMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                .addComponent(jTextNoTiket)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jBtnParkirKeluar)
                 .addGap(18, 18, 18)
@@ -315,9 +334,13 @@ public class ParkirView extends javax.swing.JFrame {
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(cariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBtnCariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(16, 16, 16)
+                .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextNoTiket, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextNopol, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
@@ -364,13 +387,17 @@ public class ParkirView extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sidePane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(card, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)))
+                    .addComponent(card, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel1, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void noPolMasukKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noPolMasukKeyTyped
+        evt.setKeyChar(Character.toUpperCase(evt.getKeyChar()));
+    }//GEN-LAST:event_noPolMasukKeyTyped
 
     /**
      * @param args the command line arguments
@@ -418,6 +445,7 @@ public class ParkirView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -430,6 +458,7 @@ public class ParkirView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextBiaya;
     private javax.swing.JTextField jTextDurasi;
     private javax.swing.JTextField jTextJenis;
+    private javax.swing.JTextField jTextNoTiket;
     private javax.swing.JTextField jTextNopol;
     private javax.swing.JTextField jTextTglJamMasuk;
     private javax.swing.ButtonGroup jenisKendaraan;
@@ -519,6 +548,18 @@ public class ParkirView extends javax.swing.JFrame {
 
     public JTable getTableMasuk() {
         return tableMasuk;
+    }
+
+    public JRadioButton getMobil() {
+        return mobil;
+    }
+
+    public JRadioButton getMotor() {
+        return motor;
+    }
+
+    public JTextField getjTextNoTiket() {
+        return jTextNoTiket;
     }
     
     public void setListener(EventListener event){

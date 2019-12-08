@@ -260,9 +260,11 @@ public class ParkirView extends javax.swing.JFrame {
 
         jBtnParkirKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBtnParkirKeluar.setText("Parkir Keluar");
+        jBtnParkirKeluar.setEnabled(false);
 
         jBtnBersihkan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBtnBersihkan.setText("Bersihkan");
+        jBtnBersihkan.setEnabled(false);
 
         tableKeluar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

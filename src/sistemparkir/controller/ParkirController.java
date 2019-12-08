@@ -77,7 +77,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
         } else if (source.equals("CARI")) {
             if (parkir.getCariKeluar().getText().isEmpty()) {
                 JOptionPane.showMessageDialog(parkir, "No. Tiket / No. Pol belum di input","Gagal",JOptionPane.ERROR_MESSAGE);
-            } else {
+            } 
+            else {
                 String [] data = parkirModel.ValidasiCari(parkir.getCariKeluar().getText());
                 if (data != null) {
                     parkir.getjTextNoTiket().setText(data[0]);
@@ -88,8 +89,7 @@ public class ParkirController extends MouseAdapter implements ActionListener{
                     parkir.getjTextBiaya().setText(data[6]);
                 }else{
                     System.out.println("gagal ambil data");
-                }
-                
+                } 
             }
         }
     }
@@ -108,6 +108,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
         tabelMasuk = parkirModel.setTabelMasuk((DefaultTableModel) parkir.getTableMasuk().getModel());
         if (tabelMasuk != null) {
             parkir.getTableMasuk().setModel(tabelMasuk);
+        }else{
+            System.out.println("Gagal nganmbil data");
         }
     }
     @Override

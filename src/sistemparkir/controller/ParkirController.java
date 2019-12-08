@@ -34,6 +34,7 @@ public class ParkirController extends MouseAdapter implements ActionListener{
     JRadioButton motor = parkir.getMotor();
     JRadioButton mobil = parkir.getMobil();
     DefaultTableModel tabelMasuk,tabelKeluar;
+    String [] data;
     
     public ParkirController() {
         parkir.setLocationRelativeTo(null);
@@ -79,7 +80,7 @@ public class ParkirController extends MouseAdapter implements ActionListener{
                 JOptionPane.showMessageDialog(parkir, "No. Tiket / No. Pol belum di input","Gagal",JOptionPane.ERROR_MESSAGE);
             } 
             else {
-                String [] data = parkirModel.ValidasiCari(parkir.getCariKeluar().getText());
+                data = parkirModel.ValidasiCari(parkir.getCariKeluar().getText());
                 if (data != null) {
                     parkir.getjTextNoTiket().setText(data[0]);
                     parkir.getjTextNopol().setText(data[1]);
@@ -87,9 +88,27 @@ public class ParkirController extends MouseAdapter implements ActionListener{
                     parkir.getjTextTglJamMasuk().setText(data[4]+" / "+data[3]);
                     parkir.getjTextDurasi().setText(data[5]);
                     parkir.getjTextBiaya().setText(data[6]);
+                    parkir.getjBtnParkirKeluar().setEnabled(true);
+                    parkir.getjBtnBersihkan().setEnabled(true);
+                            
                 }else{
                     System.out.println("gagal ambil data");
+                    
                 } 
+            }
+        } else if (source.equals("Bersihkan")) {
+            parkir.getCariKeluar().setText("");
+            parkir.getjTextNoTiket().setText("");
+            parkir.getjTextNopol().setText("");
+            parkir.getjTextJenis().setText("");
+            parkir.getjTextTglJamMasuk().setText("");
+            parkir.getjTextDurasi().setText("");
+            parkir.getjTextBiaya().setText("");
+        }else if (source.equals("Parkir Keluar")) {
+            if (parkirModel.parkirKeluar(data)) {
+                System.out.println("berhasil");
+            }else{
+                System.out.println("Gagal");
             }
         }
     }

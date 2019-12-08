@@ -5,6 +5,11 @@
  */
 package sistemparkir.view;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author ASUS
@@ -256,4 +261,35 @@ public class PendapatanView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextPdptnHari;
     private javax.swing.JPanel topPaneParkir;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getTabelHari() {
+        return TabelHari;
+    }
+
+    public JButton getjButtonBulanOK() {
+        return jButtonBulanOK;
+    }
+
+    public JComboBox<String> getjComboBulan() {
+        return jComboBulan;
+    }
+
+    public JComboBox<String> getjComboTahun() {
+        return jComboTahun;
+    }
+
+    public JTable getjTableBulan() {
+        return jTableBulan;
+    }
+
+    public JTextField getjTextFieldPdptnBulan() {
+        return jTextFieldPdptnBulan;
+    }
+
+    public JTextField getjTextPdptnHari() {
+        return jTextPdptnHari;
+    }
+    
 }
+
+

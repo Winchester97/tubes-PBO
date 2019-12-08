@@ -103,4 +103,5 @@ public class MotorModel implements pengaturan{
     }
 
     
+    
 }

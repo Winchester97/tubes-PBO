@@ -98,11 +98,15 @@ public class ParkirController extends MouseAdapter implements ActionListener{
         } else if (source.equals("Bersihkan")) {
             resetKeluar();
             tampilTabelKeluar();
+            parkir.getjBtnBersihkan().setEnabled(false);
+            parkir.getjBtnParkirKeluar().setEnabled(false);
         } else if (source.equals("Parkir Keluar")) {
             if (parkirModel.parkirKeluar(data)) {
                 JOptionPane.showMessageDialog(parkir, parkir.getjTextJenis().getText()
                 + " Dengan Plat no. " +parkir.getjTextNopol().getText()+ " Berhasil Keluar" + " ");
-                parkirModel.hapusMasuk(data[0]);   
+                parkirModel.hapusMasuk(parkir.getjTextNoTiket().getText());   
+                parkir.getjBtnBersihkan().setEnabled(false);
+                parkir.getjBtnParkirKeluar().setEnabled(false);
             }else{
                 System.out.println("Gagal");
             }

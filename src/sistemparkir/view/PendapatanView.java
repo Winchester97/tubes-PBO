@@ -5,6 +5,10 @@
  */
 package sistemparkir.view;
 
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -288,6 +292,10 @@ public class PendapatanView extends javax.swing.JFrame {
 
     public JTextField getjTextPdptnHari() {
         return jTextPdptnHari;
+    }
+    
+    public void setListener(EventListener event){
+        
     }
     
 }

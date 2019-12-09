@@ -37,6 +37,40 @@ public class ParkirModel {
         }
     }
     
+    public void hapusMasuk (String no_tiket) {
+        String sql = "DELETE FROM parkir_masuk WHERE no_tiket = "+no_tiket;
+        try {
+            konek = DatabaseMySQL.getConnection();
+            st = konek.createStatement();
+            st.execute(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public boolean parkirKeluar(String[] data){
+        var current_time = System.currentTimeMillis();
+        int biaya;
+        if (data[2].equalsIgnoreCase("motor")) {
+           biaya = Integer.parseInt(data[8]);
+        }else{
+           biaya = Integer.parseInt(data[7]);
+        }
+        String sql = "INSERT INTO parkir_keluar(no_tiket,no_polisi,jenis_kendaraan,"
+                    + "waktu_keluar,biaya)"
+                    + "VALUES("+data[0]+",'"+data[1]+"','"+data[2]+"',"+current_time+","
+                    + biaya+")";
+        try {
+            konek = DatabaseMySQL.getConnection();
+            st = konek.createStatement();
+            st.execute(sql);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }       
+   }
+    
     public DefaultTableModel setTabelMasuk(DefaultTableModel masuk){
         String query = "SELECT * FROM parkir_masuk ORDER BY no_tiket ASC";        
         try {
@@ -54,6 +88,29 @@ public class ParkirModel {
                 masuk.addRow(data);
             }
             return masuk;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public DefaultTableModel setTabelKeluar(DefaultTableModel keluar) {
+            String query = "Select * From parkir_keluar ORDER BY id_keluar ASC";
+            try {
+                konek = DatabaseMySQL.getConnection();
+                st = konek.createStatement();
+                rs = st.executeQuery(query);
+                while (rs.next()) {
+                    String no_tiket = rs.getString("no_tiket");
+                    String no_pol = rs.getString("no_polisi");
+                    String jenis = rs.getString("jenis_kendaraan");
+                    String tgl_keluar = new SimpleDateFormat("dd-MM-yyyy").format(new Date(rs.getLong("waktu_keluar")));
+                    String jam_keluar = new SimpleDateFormat("HH:mm:ss").format(new Date(rs.getLong("waktu_keluar")));
+                    String biaya = rs.getString("biaya");
+                    String [] data = {no_tiket,no_pol,jenis,tgl_keluar,jam_keluar,biaya};
+                    keluar.addRow(data);
+                    
+                } return keluar;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -120,26 +177,5 @@ public class ParkirModel {
         return null;
    }
    
-   public boolean parkirKeluar(String[] data){
-        var current_time = System.currentTimeMillis();
-        int biaya;
-        if (data[2].equalsIgnoreCase("motor")) {
-           biaya = Integer.parseInt(data[8]);
-        }else{
-           biaya = Integer.parseInt(data[7]);
-        }
-        String sql = "INSERT INTO parkir_keluar(no_tiket,no_polisi,jenis_kendaraan,"
-                    + "waktu_keluar,biaya)"
-                    + "VALUES("+data[0]+",'"+data[1]+"','"+data[2]+"',"+current_time+","
-                    + biaya+")";
-        try {
-            konek = DatabaseMySQL.getConnection();
-            st = konek.createStatement();
-            st.execute(sql);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }       
-   }
+   
 }

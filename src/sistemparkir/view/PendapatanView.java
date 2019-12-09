@@ -299,9 +299,6 @@ public class PendapatanView extends javax.swing.JFrame {
     public void setListener(EventListener event){
         
     }
-    
-        jButtonBulanOK.addActionListener((ActionListener) event);
-    }
 }
 
 

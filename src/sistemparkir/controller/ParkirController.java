@@ -41,6 +41,7 @@ public class ParkirController extends MouseAdapter implements ActionListener{
         parkir.setListener(this);
         parkir.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         tampilTabelMasuk();
+        tampilTabelKeluar();
         parkir.setVisible(true);
     }
 
@@ -81,7 +82,9 @@ public class ParkirController extends MouseAdapter implements ActionListener{
             } 
             else {
                 data = parkirModel.ValidasiCari(parkir.getCariKeluar().getText());
-                if (data != null) {
+                if (data == null){
+                    JOptionPane.showMessageDialog(parkir, "no. Polisi / no. Tiket Tidak ada","Gagal",JOptionPane.ERROR_MESSAGE);
+                } else {
                     parkir.getjTextNoTiket().setText(data[0]);
                     parkir.getjTextNopol().setText(data[1]);
                     parkir.getjTextJenis().setText(data[2]);
@@ -90,26 +93,23 @@ public class ParkirController extends MouseAdapter implements ActionListener{
                     parkir.getjTextBiaya().setText(data[6]);
                     parkir.getjBtnParkirKeluar().setEnabled(true);
                     parkir.getjBtnBersihkan().setEnabled(true);
-                            
-                }else{
-                    System.out.println("gagal ambil data");
-                    
-                } 
+                }
             }
         } else if (source.equals("Bersihkan")) {
-            parkir.getCariKeluar().setText("");
-            parkir.getjTextNoTiket().setText("");
-            parkir.getjTextNopol().setText("");
-            parkir.getjTextJenis().setText("");
-            parkir.getjTextTglJamMasuk().setText("");
-            parkir.getjTextDurasi().setText("");
-            parkir.getjTextBiaya().setText("");
-        }else if (source.equals("Parkir Keluar")) {
+            resetKeluar();
+            tampilTabelKeluar();
+        } else if (source.equals("Parkir Keluar")) {
             if (parkirModel.parkirKeluar(data)) {
-                System.out.println("berhasil");
+                JOptionPane.showMessageDialog(parkir, parkir.getjTextJenis().getText()
+                + " Dengan Plat no. " +parkir.getjTextNopol().getText()+ " Berhasil Keluar" + " ");
+                parkirModel.hapusMasuk(data[0]);   
             }else{
                 System.out.println("Gagal");
             }
+            resetKeluar();
+            tampilTabelKeluar();
+            resetMasuk();
+            tampilTabelMasuk();
         }
     }
     
@@ -123,14 +123,34 @@ public class ParkirController extends MouseAdapter implements ActionListener{
         }
     }
     
+    private void resetKeluar(){
+        parkir.getCariKeluar().setText("");
+        parkir.getjTextNoTiket().setText("");
+        parkir.getjTextNopol().setText("");
+        parkir.getjTextJenis().setText("");
+        parkir.getjTextTglJamMasuk().setText("");
+        parkir.getjTextDurasi().setText("");
+        parkir.getjTextBiaya().setText("");
+        int rowCount = tabelKeluar.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            tabelKeluar.removeRow(i);
+        }
+    }
+    
     private void tampilTabelMasuk(){
         tabelMasuk = parkirModel.setTabelMasuk((DefaultTableModel) parkir.getTableMasuk().getModel());
         if (tabelMasuk != null) {
             parkir.getTableMasuk().setModel(tabelMasuk);
-        }else{
-            System.out.println("Gagal nganmbil data");
         }
     }
+    
+    private void tampilTabelKeluar() {
+        tabelKeluar = parkirModel.setTabelKeluar((DefaultTableModel) parkir.getTableKeluar().getModel());
+        if (tabelKeluar != null) {
+            parkir.getTableKeluar().setModel(tabelKeluar);
+        }
+    }
+    
     @Override
     public void mouseEntered(MouseEvent e) {
         Object source = e.getSource();

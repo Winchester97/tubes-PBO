@@ -6,6 +6,9 @@
 package sistemparkir.view;
 
 import java.awt.event.ActionListener;
+
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -294,6 +297,9 @@ public class PendapatanView extends javax.swing.JFrame {
     }
     
     public void setListener(EventListener event){
+        
+    }
+    
         jButtonBulanOK.addActionListener((ActionListener) event);
     }
 }

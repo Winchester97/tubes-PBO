@@ -112,6 +112,11 @@ public class ParkirView extends javax.swing.JFrame {
         jButtonKeluar.setText("KELUAR");
         jButtonKeluar.setBorderPainted(false);
         jButtonKeluar.setIconTextGap(15);
+        jButtonKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonKeluarActionPerformed(evt);
+            }
+        });
 
         jButtonMasuk.setBackground(new java.awt.Color(204, 204, 255));
         jButtonMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -398,6 +403,10 @@ public class ParkirView extends javax.swing.JFrame {
     private void noPolMasukKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_noPolMasukKeyTyped
         evt.setKeyChar(Character.toUpperCase(evt.getKeyChar()));
     }//GEN-LAST:event_noPolMasukKeyTyped
+
+    private void jButtonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKeluarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonKeluarActionPerformed
 
     /**
      * @param args the command line arguments

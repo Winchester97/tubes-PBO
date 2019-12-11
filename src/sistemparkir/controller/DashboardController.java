@@ -81,7 +81,11 @@ public class DashboardController extends MouseAdapter{
         }else if (source.equals(parkir)) {
             new ParkirController();
         }else if (source.equals(pendapatan)) {
-            new PendapatanController();
+            if (!DatabaseMySQL.isConnect()) {
+                JOptionPane.showMessageDialog(dashboard, "Gagal Terkoneksi dengan database","DATABASE FAILED",JOptionPane.ERROR_MESSAGE);
+            }else{
+                new PendapatanController();
+            }
         }
     }
 

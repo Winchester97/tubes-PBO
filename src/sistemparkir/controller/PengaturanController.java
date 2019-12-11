@@ -30,7 +30,6 @@ public class PengaturanController extends MouseAdapter implements ActionListener
     
     public PengaturanController() {
         pengaturan.setLocationRelativeTo(null);
-        pengaturan.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         initView();
         pengaturan.setListener((EventListener) this);
         pengaturan.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);

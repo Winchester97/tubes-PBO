@@ -6,9 +6,6 @@
 package sistemparkir.view;
 
 import java.awt.event.ActionListener;
-
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -19,7 +16,7 @@ import javax.swing.JTextField;
  *
  * @author ASUS
  */
-public class PendapatanView extends javax.swing.JFrame {
+public class PendapatanView extends javax.swing.JDialog {
 
     /**
      * Creates new form PendapatanView
@@ -54,7 +51,7 @@ public class PendapatanView extends javax.swing.JFrame {
         jButtonBulanOK = new javax.swing.JButton();
         jComboTahun = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         topPaneParkir.setBackground(new java.awt.Color(0, 0, 203));
@@ -297,7 +294,7 @@ public class PendapatanView extends javax.swing.JFrame {
     }
     
     public void setListener(EventListener event){
-        
+        jButtonBulanOK.addActionListener((ActionListener) event);
     }
 }
 

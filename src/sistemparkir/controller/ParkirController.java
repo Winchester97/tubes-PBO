@@ -5,18 +5,16 @@
  */
 package sistemparkir.controller;
 
+import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import sistemparkir.model.ParkirModel;
 import sistemparkir.view.ParkirView;
@@ -39,7 +37,7 @@ public class ParkirController extends MouseAdapter implements ActionListener{
     public ParkirController() {
         parkir.setLocationRelativeTo(null);
         parkir.setListener(this);
-        parkir.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        parkir.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
         tampilTabelMasuk();
         tampilTabelKeluar();
         parkir.setVisible(true);
@@ -84,6 +82,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
                 data = parkirModel.ValidasiCari(parkir.getCariKeluar().getText());
                 if (data == null){
                     JOptionPane.showMessageDialog(parkir, "no. Polisi / no. Tiket Tidak ada","Gagal",JOptionPane.ERROR_MESSAGE);
+                    resetKeluar();
+                    tampilTabelKeluar();
                 } else {
                     parkir.getjTextNoTiket().setText(data[0]);
                     parkir.getjTextNopol().setText(data[1]);
@@ -105,8 +105,6 @@ public class ParkirController extends MouseAdapter implements ActionListener{
                 JOptionPane.showMessageDialog(parkir, parkir.getjTextJenis().getText()
                 + " Dengan Plat no. " +parkir.getjTextNopol().getText()+ " Berhasil Keluar" + " ");
                 parkirModel.hapusMasuk(parkir.getjTextNoTiket().getText());   
-                parkir.getjBtnBersihkan().setEnabled(false);
-                parkir.getjBtnParkirKeluar().setEnabled(false);
             }else{
                 System.out.println("Gagal");
             }
@@ -139,6 +137,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
         for (int i = rowCount - 1; i >= 0; i--) {
             tabelKeluar.removeRow(i);
         }
+        parkir.getjBtnBersihkan().setEnabled(false);
+        parkir.getjBtnParkirKeluar().setEnabled(false);
     }
     
     private void tampilTabelMasuk(){

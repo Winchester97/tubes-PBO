@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  *
  * @author 62822
  */
-public class ParkirView extends javax.swing.JFrame {
+public class ParkirView extends javax.swing.JDialog {
 
     /**
      * Creates new form ParkirView
@@ -75,7 +75,7 @@ public class ParkirView extends javax.swing.JFrame {
         jTextNoTiket = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 

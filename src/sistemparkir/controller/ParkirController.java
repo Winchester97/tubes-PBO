@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemparkir.controller;
 
 import java.awt.Dialog;
@@ -14,14 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import sistemparkir.model.ParkirModel;
 import sistemparkir.view.ParkirView;
 
 /**
  *
- * @author 62822
+ * @author Ammar Amri
  */
 public class ParkirController extends MouseAdapter implements ActionListener{
     private ParkirView parkir = new ParkirView();

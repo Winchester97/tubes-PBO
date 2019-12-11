@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemparkir.controller;
 
 import java.awt.Dialog;
@@ -20,8 +15,6 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import sistemparkir.database.DatabaseMySQL;
 import sistemparkir.model.PendapatanModel;
@@ -29,7 +22,7 @@ import sistemparkir.view.PendapatanView;
 
 /**
  *
- * @author 62822
+ * @author Ammar Amri
  */
 public class PendapatanController implements ActionListener{
     private PendapatanView pendapatan = new PendapatanView();

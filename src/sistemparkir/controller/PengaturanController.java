@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemparkir.controller;
 
 import java.awt.Dialog;
@@ -12,14 +7,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.EventListener;
 import javax.swing.JOptionPane;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import sistemparkir.view.PengaturanView;
 import sistemparkir.model.MobilModel;
 import sistemparkir.model.MotorModel;
 
 /**
  *
- * @author 62822
+ * @author Ammar Amri
  */
 public class PengaturanController extends MouseAdapter implements ActionListener{
     private PengaturanView pengaturan = new PengaturanView();

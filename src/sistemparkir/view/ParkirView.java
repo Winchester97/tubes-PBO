@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import java.util.EventListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
@@ -41,6 +42,17 @@ public class ParkirView extends javax.swing.JDialog {
         simpanMasuk = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableMasuk = new javax.swing.JTable();
+        jTextFieldKptsMtr = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldKpstsMbl = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextFieldJmlMtr = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextFieldJmlMbl = new javax.swing.JTextField();
+        jLabelNotif = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         keluarPane = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         cariKeluar = new javax.swing.JTextField();
@@ -99,11 +111,6 @@ public class ParkirView extends javax.swing.JDialog {
         jButtonKeluar.setText("KELUAR");
         jButtonKeluar.setBorderPainted(false);
         jButtonKeluar.setIconTextGap(15);
-        jButtonKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonKeluarActionPerformed(evt);
-            }
-        });
 
         jButtonMasuk.setBackground(new java.awt.Color(204, 204, 255));
         jButtonMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -175,41 +182,117 @@ public class ParkirView extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tableMasuk);
 
+        jTextFieldKptsMtr.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldKptsMtr.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldKptsMtr.setEnabled(false);
+
+        jLabel2.setText(" Motor :");
+
+        jLabel3.setText("Mobil :");
+
+        jTextFieldKpstsMbl.setForeground(new java.awt.Color(0, 0, 0));
+        jTextFieldKpstsMbl.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldKpstsMbl.setEnabled(false);
+
+        jLabel13.setText("Jumlah Kendaraan di tempat parkir :");
+
+        jTextFieldJmlMtr.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldJmlMtr.setEnabled(false);
+
+        jLabel14.setText("Motor :");
+
+        jLabel15.setText("Mobil  :");
+
+        jTextFieldJmlMbl.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldJmlMbl.setEnabled(false);
+
+        jLabelNotif.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel16.setText("Jumlah Kapasitas Parkir :");
+
         javax.swing.GroupLayout masukPaneLayout = new javax.swing.GroupLayout(masukPane);
         masukPane.setLayout(masukPaneLayout);
         masukPaneLayout.setHorizontalGroup(
             masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(masukPaneLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(32, 32, 32)
-                .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, masukPaneLayout.createSequentialGroup()
-                        .addComponent(motor)
-                        .addGap(18, 18, 18)
-                        .addComponent(mobil))
-                    .addComponent(noPolMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(simpanMasuk, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+            .addGroup(masukPaneLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelNotif)
+                    .addGroup(masukPaneLayout.createSequentialGroup()
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(32, 32, 32)
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, masukPaneLayout.createSequentialGroup()
+                                .addComponent(motor)
+                                .addGap(18, 18, 18)
+                                .addComponent(mobil))
+                            .addComponent(noPolMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(simpanMasuk, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(69, 69, 69)
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel13)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, masukPaneLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTextFieldKpstsMbl, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(masukPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldKptsMtr, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(masukPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldJmlMtr, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(masukPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldJmlMbl, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel16))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         masukPaneLayout.setVerticalGroup(
             masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(masukPaneLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(noPolMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(motor)
-                    .addComponent(mobil))
-                .addGap(18, 18, 18)
-                .addComponent(simpanMasuk)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(masukPaneLayout.createSequentialGroup()
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldKptsMtr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldKpstsMbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jTextFieldJmlMtr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextFieldJmlMbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(masukPaneLayout.createSequentialGroup()
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(noPolMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(motor)
+                            .addComponent(mobil))
+                        .addGap(18, 18, 18)
+                        .addComponent(simpanMasuk)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jLabelNotif)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -221,6 +304,11 @@ public class ParkirView extends javax.swing.JDialog {
         jLabel6.setText("No. Polisi / No. Tiket      :");
 
         cariKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cariKeluar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cariKeluarKeyTyped(evt);
+            }
+        });
 
         jBtnCariKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jBtnCariKeluar.setText("CARI");
@@ -287,36 +375,38 @@ public class ParkirView extends javax.swing.JDialog {
             keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(keluarPaneLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBtnCariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(keluarPaneLayout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(26, 26, 26)
-                            .addComponent(cariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(keluarPaneLayout.createSequentialGroup()
-                            .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(keluarPaneLayout.createSequentialGroup()
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(25, 25, 25)))
-                            .addGap(18, 18, 18)
-                            .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextNopol)
-                                .addComponent(jTextJenis, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextDurasi, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextBiaya, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextTglJamMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(jTextNoTiket)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jBtnParkirKeluar)
-                .addGap(18, 18, 18)
-                .addComponent(jBtnBersihkan)
-                .addGap(27, 27, 27))
+                .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(keluarPaneLayout.createSequentialGroup()
+                        .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBtnCariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(keluarPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(26, 26, 26)
+                                .addComponent(cariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(jBtnParkirKeluar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnBersihkan)
+                        .addGap(27, 27, 27))
+                    .addGroup(keluarPaneLayout.createSequentialGroup()
+                        .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(keluarPaneLayout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(25, 25, 25)))
+                        .addGap(18, 18, 18)
+                        .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextNopol)
+                            .addComponent(jTextJenis, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(jTextDurasi, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(jTextBiaya, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(jTextTglJamMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(jTextNoTiket))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jScrollPane3)
         );
         keluarPaneLayout.setVerticalGroup(
@@ -332,11 +422,11 @@ public class ParkirView extends javax.swing.JDialog {
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextNoTiket, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextNopol, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, keluarPaneLayout.createSequentialGroup()
                         .addGroup(keluarPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -356,7 +446,7 @@ public class ParkirView extends javax.swing.JDialog {
                         .addComponent(jLabel11)
                         .addComponent(jBtnParkirKeluar)
                         .addComponent(jBtnBersihkan)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -391,9 +481,9 @@ public class ParkirView extends javax.swing.JDialog {
         evt.setKeyChar(Character.toUpperCase(evt.getKeyChar()));
     }//GEN-LAST:event_noPolMasukKeyTyped
 
-    private void jButtonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKeluarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonKeluarActionPerformed
+    private void cariKeluarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cariKeluarKeyTyped
+        evt.setKeyChar(Character.toUpperCase(evt.getKeyChar()));
+    }//GEN-LAST:event_cariKeluarKeyTyped
 
     /**
      * @param args the command line arguments
@@ -423,10 +513,8 @@ public class ParkirView extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ParkirView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ParkirView().setVisible(true);
         });
     }
 
@@ -442,17 +530,28 @@ public class ParkirView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelNotif;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextBiaya;
     private javax.swing.JTextField jTextDurasi;
+    private javax.swing.JTextField jTextFieldJmlMbl;
+    private javax.swing.JTextField jTextFieldJmlMtr;
+    private javax.swing.JTextField jTextFieldKpstsMbl;
+    private javax.swing.JTextField jTextFieldKptsMtr;
     private javax.swing.JTextField jTextJenis;
     private javax.swing.JTextField jTextNoTiket;
     private javax.swing.JTextField jTextNopol;
@@ -557,6 +656,28 @@ public class ParkirView extends javax.swing.JDialog {
     public JTextField getjTextNoTiket() {
         return jTextNoTiket;
     }
+
+    public JTextField getjTextFieldJmlMbl() {
+        return jTextFieldJmlMbl;
+    }
+
+    public JTextField getjTextFieldJmlMtr() {
+        return jTextFieldJmlMtr;
+    }
+
+    public JTextField getjTextFieldKptsMtr() {
+        return jTextFieldKptsMtr;
+    }
+
+    public JTextField getjTextFieldKpstsMbl() {
+        return jTextFieldKpstsMbl;
+    }
+
+    public JLabel getjLabelNotif() {
+        return jLabelNotif;
+    }
+    
+    
     
     public void setListener(EventListener event){
         jButtonMasuk.addActionListener((ActionListener) event);

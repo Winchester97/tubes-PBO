@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -18,87 +20,100 @@ import sistemparkir.view.ParkirView;
  * @author Ammar Amri
  */
 public class ParkirController extends MouseAdapter implements ActionListener{
-    private ParkirView parkir = new ParkirView();
-    private ParkirModel parkirModel = new ParkirModel();
-    private JButton masuk = parkir.getjButtonMasuk();
-    private JButton keluar = parkir.getjButtonKeluar();    
-    JTextField noPolMasuk = parkir.getNoPolMasuk();
-    JRadioButton motor = parkir.getMotor();
-    JRadioButton mobil = parkir.getMobil();
-    DefaultTableModel tabelMasuk,tabelKeluar;
-    String [] data;
+    private ParkirView parkirView;
+    private ParkirModel parkirModel;
+    private JButton masukBtn;
+    private JButton keluarBtn;    
+    private JTextField jTxtFieldnoPolMasuk;
+    private JRadioButton jRadioBtnMtr;
+    private JRadioButton jRadioBtnMbl;
+    private DefaultTableModel tabelMasuk,tabelKeluar;
+    private String [] data;
+    private int jumlahMtr;
+    private int jumlahMbl;
+    private int kapasitasMtr;
+    private int kapasitasMbl;
     
     public ParkirController() {
-        parkir.setLocationRelativeTo(null);
-        parkir.setListener(this);
-        parkir.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        this.parkirView = new ParkirView();
+        this.parkirModel = new ParkirModel();
+        this.masukBtn = parkirView.getjButtonMasuk();
+        this.keluarBtn = parkirView.getjButtonKeluar();
+        this.jTxtFieldnoPolMasuk = parkirView.getNoPolMasuk();
+        this.jRadioBtnMtr = parkirView.getMotor();
+        this.jRadioBtnMbl = parkirView.getMobil();
+        parkirView.setLocationRelativeTo(null);
+        parkirView.setListener(this);
+        parkirView.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
         tampilTabelMasuk();
         tampilTabelKeluar();
-        parkir.setVisible(true);
+        cekKapasitas();
+        parkirView.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
         Object source = event.getActionCommand();
         if (source.equals("MASUK")) {
-            parkir.getKeluarPane().setVisible(false);
-            parkir.getMasukPane().setVisible(true);
+            parkirView.getKeluarPane().setVisible(false);
+            parkirView.getMasukPane().setVisible(true);
         }else if (source.equals("KELUAR")) {
-            parkir.getMasukPane().setVisible(false);
-            parkir.getKeluarPane().setVisible(true);
+            parkirView.getMasukPane().setVisible(false);
+            parkirView.getKeluarPane().setVisible(true);
         }else if (source.equals("Simpan")) {
-            if (noPolMasuk.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(parkir, "No polisi belum diisi","Gagal",JOptionPane.ERROR_MESSAGE);
-            }else if (!motor.isSelected() && !mobil.isSelected()) {
-                JOptionPane.showMessageDialog(parkir, "Jenis kendaraan belum dipilih","Gagal",JOptionPane.ERROR_MESSAGE);   
+            if (jTxtFieldnoPolMasuk.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(parkirView, "No polisi belum diisi","Gagal",JOptionPane.ERROR_MESSAGE);
+            }else if (!jRadioBtnMtr.isSelected() && !jRadioBtnMbl.isSelected()) {
+                JOptionPane.showMessageDialog(parkirView, "Jenis kendaraan belum dipilih","Gagal",JOptionPane.ERROR_MESSAGE);   
             }else{
-                if (motor.isSelected()) {
-                    if (parkirModel.parkirMasuk(noPolMasuk.getText(), "Motor")){
-                        JOptionPane.showMessageDialog(parkir, "Data Berhasil disimpan");
+                if (jRadioBtnMtr.isSelected()) {
+                    if (parkirModel.parkirMasuk(jTxtFieldnoPolMasuk.getText(), "Motor")){
+                        JOptionPane.showMessageDialog(parkirView, "Data Berhasil disimpan");
                     }else{
-                        JOptionPane.showMessageDialog(parkir, "Data gagal disimpan");
+                        JOptionPane.showMessageDialog(parkirView, "Data gagal disimpan");
                     }
-                } else if (mobil.isSelected()) {
-                    if (parkirModel.parkirMasuk(noPolMasuk.getText(), "Mobil")){
-                        JOptionPane.showMessageDialog(parkir, "Data Berhasil disimpan");
+                } else if (jRadioBtnMbl.isSelected()) {
+                    if (parkirModel.parkirMasuk(jTxtFieldnoPolMasuk.getText(), "Mobil")){
+                        JOptionPane.showMessageDialog(parkirView, "Data Berhasil disimpan");
                     }else{
-                        JOptionPane.showMessageDialog(parkir, "Data gagal disimpan");
+                        JOptionPane.showMessageDialog(parkirView, "Data gagal disimpan");
                     }                    
                 }
                 resetMasuk();
                 tampilTabelMasuk();
+                cekKapasitas();
             }
         } else if (source.equals("CARI")) {
-            if (parkir.getCariKeluar().getText().isEmpty()) {
-                JOptionPane.showMessageDialog(parkir, "No. Tiket / No. Pol belum di input","Gagal",JOptionPane.ERROR_MESSAGE);
+            if (parkirView.getCariKeluar().getText().isEmpty()) {
+                JOptionPane.showMessageDialog(parkirView, "No. Tiket / No. Pol belum di input","Gagal",JOptionPane.ERROR_MESSAGE);
             } 
             else {
-                data = parkirModel.ValidasiCari(parkir.getCariKeluar().getText());
+                data = parkirModel.ValidasiCari(parkirView.getCariKeluar().getText());
                 if (data == null){
-                    JOptionPane.showMessageDialog(parkir, "no. Polisi / no. Tiket Tidak ada","Gagal",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(parkirView, "no. Polisi / no. Tiket Tidak ada","Gagal",JOptionPane.ERROR_MESSAGE);
                     resetKeluar();
                     tampilTabelKeluar();
                 } else {
-                    parkir.getjTextNoTiket().setText(data[0]);
-                    parkir.getjTextNopol().setText(data[1]);
-                    parkir.getjTextJenis().setText(data[2]);
-                    parkir.getjTextTglJamMasuk().setText(data[4]+" / "+data[3]);
-                    parkir.getjTextDurasi().setText(data[5]);
-                    parkir.getjTextBiaya().setText(data[6]);
-                    parkir.getjBtnParkirKeluar().setEnabled(true);
-                    parkir.getjBtnBersihkan().setEnabled(true);
+                    parkirView.getjTextNoTiket().setText(data[0]);
+                    parkirView.getjTextNopol().setText(data[1]);
+                    parkirView.getjTextJenis().setText(data[2]);
+                    parkirView.getjTextTglJamMasuk().setText(data[4]+" / "+data[3]);
+                    parkirView.getjTextDurasi().setText(data[5]);
+                    parkirView.getjTextBiaya().setText(data[6]);
+                    parkirView.getjBtnParkirKeluar().setEnabled(true);
+                    parkirView.getjBtnBersihkan().setEnabled(true);
                 }
             }
         } else if (source.equals("Bersihkan")) {
             resetKeluar();
             tampilTabelKeluar();
-            parkir.getjBtnBersihkan().setEnabled(false);
-            parkir.getjBtnParkirKeluar().setEnabled(false);
+            parkirView.getjBtnBersihkan().setEnabled(false);
+            parkirView.getjBtnParkirKeluar().setEnabled(false);
         } else if (source.equals("Parkir Keluar")) {
             if (parkirModel.parkirKeluar(data)) {
-                JOptionPane.showMessageDialog(parkir, parkir.getjTextJenis().getText()
-                + " Dengan Plat no. " +parkir.getjTextNopol().getText()+ " Berhasil Keluar" + " ");
-                parkirModel.hapusMasuk(parkir.getjTextNoTiket().getText());   
+                JOptionPane.showMessageDialog(parkirView, parkirView.getjTextJenis().getText()
+                + " Dengan Plat no. " +parkirView.getjTextNopol().getText()+ " Berhasil Keluar" + " ");
+                parkirModel.hapusMasuk(parkirView.getjTextNoTiket().getText());   
             }else{
                 System.out.println("Gagal");
             }
@@ -106,13 +121,14 @@ public class ParkirController extends MouseAdapter implements ActionListener{
             tampilTabelKeluar();
             resetMasuk();
             tampilTabelMasuk();
+            cekKapasitas();
         }
     }
     
     private void resetMasuk(){
-        noPolMasuk.setText("");
-        motor.setSelected(false);
-        mobil.setSelected(false);
+        jTxtFieldnoPolMasuk.setText("");
+        jRadioBtnMtr.setSelected(false);
+        jRadioBtnMbl.setSelected(false);
         int rowCount = tabelMasuk.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
             tabelMasuk.removeRow(i);
@@ -120,52 +136,85 @@ public class ParkirController extends MouseAdapter implements ActionListener{
     }
     
     private void resetKeluar(){
-        parkir.getCariKeluar().setText("");
-        parkir.getjTextNoTiket().setText("");
-        parkir.getjTextNopol().setText("");
-        parkir.getjTextJenis().setText("");
-        parkir.getjTextTglJamMasuk().setText("");
-        parkir.getjTextDurasi().setText("");
-        parkir.getjTextBiaya().setText("");
+        parkirView.getCariKeluar().setText("");
+        parkirView.getjTextNoTiket().setText("");
+        parkirView.getjTextNopol().setText("");
+        parkirView.getjTextJenis().setText("");
+        parkirView.getjTextTglJamMasuk().setText("");
+        parkirView.getjTextDurasi().setText("");
+        parkirView.getjTextBiaya().setText("");
         int rowCount = tabelKeluar.getRowCount();
         for (int i = rowCount - 1; i >= 0; i--) {
             tabelKeluar.removeRow(i);
         }
-        parkir.getjBtnBersihkan().setEnabled(false);
-        parkir.getjBtnParkirKeluar().setEnabled(false);
+        parkirView.getjBtnBersihkan().setEnabled(false);
+        parkirView.getjBtnParkirKeluar().setEnabled(false);
     }
     
     private void tampilTabelMasuk(){
-        tabelMasuk = parkirModel.setTabelMasuk((DefaultTableModel) parkir.getTableMasuk().getModel());
+        tabelMasuk = parkirModel.setTabelMasuk((DefaultTableModel) parkirView.getTableMasuk().getModel());
         if (tabelMasuk != null) {
-            parkir.getTableMasuk().setModel(tabelMasuk);
+            parkirView.getTableMasuk().setModel(tabelMasuk);
         }
     }
     
     private void tampilTabelKeluar() {
-        tabelKeluar = parkirModel.setTabelKeluar((DefaultTableModel) parkir.getTableKeluar().getModel());
+        tabelKeluar = parkirModel.setTabelKeluar((DefaultTableModel) parkirView.getTableKeluar().getModel());
         if (tabelKeluar != null) {
-            parkir.getTableKeluar().setModel(tabelKeluar);
+            parkirView.getTableKeluar().setModel(tabelKeluar);
+        }
+    }
+    
+    private void cekKapasitas(){
+        this.jumlahMtr = parkirModel.getJumlahMotor();
+        this.jumlahMbl = parkirModel.getJumlahMobil();
+        this.kapasitasMtr = parkirModel.getKapasitasMotor();
+        this.kapasitasMbl = parkirModel.getKapasitasMobil();
+        parkirView.getjTextFieldKptsMtr().setText(String.valueOf(kapasitasMtr));
+        parkirView.getjTextFieldKpstsMbl().setText(String.valueOf(kapasitasMbl));
+        parkirView.getjTextFieldJmlMtr().setText(String.valueOf(jumlahMtr));
+        parkirView.getjTextFieldJmlMbl().setText(String.valueOf(jumlahMbl));
+        JLabel notif = parkirView.getjLabelNotif();
+        if (jumlahMtr>=kapasitasMtr && jumlahMbl>=kapasitasMbl) {
+            JOptionPane.showMessageDialog(parkirView, "Kapasitas Motor dan Mobil Penuh !");
+            jRadioBtnMtr.setEnabled(false);
+            jRadioBtnMbl.setEnabled(false);
+            jTxtFieldnoPolMasuk.setEnabled(false);
+            parkirView.getSimpanMasuk().setEnabled(false);
+        }else if (jumlahMtr>=kapasitasMtr) {
+            notif.setText("Kapasitas Motor Penuh !");
+            jRadioBtnMtr.setEnabled(false);
+            jRadioBtnMbl.setSelected(true);
+        }else if (jumlahMbl>=kapasitasMbl) {
+            notif.setText("Kapasitas Mobil Penuh !");
+            jRadioBtnMbl.setEnabled(false);
+            jRadioBtnMtr.setSelected(true);
+        }else{
+            notif.setText("");
+            jRadioBtnMbl.setEnabled(true);
+            jRadioBtnMtr.setEnabled(true);
+            jTxtFieldnoPolMasuk.setEnabled(true);
+            parkirView.getSimpanMasuk().setEnabled(true);
         }
     }
     
     @Override
     public void mouseEntered(MouseEvent e) {
         Object source = e.getSource();
-        if (source.equals(masuk)) {
-            parkir.setColor(masuk);
-        }else if (source.equals(keluar)) {
-            parkir.setColor(keluar);
+        if (source.equals(masukBtn)) {
+            parkirView.setColor(masukBtn);
+        }else if (source.equals(keluarBtn)) {
+            parkirView.setColor(keluarBtn);
         }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         Object source = e.getSource();
-        if (source.equals(masuk)) {
-            parkir.resetColor(masuk);
-        }else if (source.equals(keluar)) {
-            parkir.resetColor(keluar);
+        if (source.equals(masukBtn)) {
+            parkirView.resetColor(masukBtn);
+        }else if (source.equals(keluarBtn)) {
+            parkirView.resetColor(keluarBtn);
         }
     }
     

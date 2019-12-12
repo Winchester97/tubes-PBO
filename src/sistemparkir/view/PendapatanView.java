@@ -223,10 +223,8 @@ public class PendapatanView extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PendapatanView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PendapatanView().setVisible(true);
         });
     }
 

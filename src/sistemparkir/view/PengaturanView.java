@@ -6,6 +6,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 /**
  *
  * @author Ammar Amri
@@ -323,53 +324,77 @@ public class PengaturanView extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
 
-    public int getjTextKapasitasMobil() {
-        try {
-            return Integer.valueOf(jTextKapasitasMobil.getText());
- 
-        } catch (Exception e) {
-            return 0;
-        }
+//    public int getjTextKapasitasMobil() {
+//        try {
+//            return Integer.valueOf(jTextKapasitasMobil.getText());
+// 
+//        } catch (NumberFormatException e) {
+//            return 0;
+//        }
+//    }
+//
+//    public int getjTextKapasitasMotor() {
+//        try {
+//            return Integer.valueOf(jTextKapasitasMotor.getText());
+//       } catch (NumberFormatException e) {
+//            return 0;
+//        }
+//    }
+//
+//    public Float getjTextTarifAwalMobil() {
+//        try {
+//            return Float.valueOf(jTextTarifAwalMobil.getText());    
+//        } catch (NumberFormatException e) {
+//            return null;
+//        }
+//    }
+//
+//    public Float getjTextTarifAwalMotor() {
+//        try {
+//            return Float.valueOf(jTextTarifAwalMotor.getText());
+//        } catch (NumberFormatException e) {
+//            return null;
+//        }
+//    }
+//
+//    public Float getjTextTarifJamMobil() {
+//        try {
+//            return Float.valueOf(jTextTarifJamMobil.getText());
+//        } catch (NumberFormatException e) {
+//            return null;
+//        }
+//    }
+//
+//    public Float getjTextTarifJamMotor() {
+//        try {
+//            return Float.valueOf(jTextTarifJamMotor.getText());
+//        } catch (NumberFormatException e) {
+//            return null;
+//        }
+//    }
+    
+    public JTextField getjTextTarifAwalMotor() {
+        return jTextTarifAwalMotor;
     }
 
-    public int getjTextKapasitasMotor() {
-        try {
-            return Integer.valueOf(jTextKapasitasMotor.getText());
-       } catch (Exception e) {
-            return 0;
-        }
+    public JTextField getjTextTarifAwalMobil() {
+        return jTextTarifAwalMobil;
     }
 
-    public Float getjTextTarifAwalMobil() {
-        try {
-            return Float.valueOf(jTextTarifAwalMobil.getText());    
-        } catch (Exception e) {
-            return null;
-        }
+    public JTextField getjTextKapasitasMotor() {
+        return jTextKapasitasMotor;
     }
 
-    public Float getjTextTarifAwalMotor() {
-        try {
-            return Float.valueOf(jTextTarifAwalMotor.getText());
-        } catch (Exception e) {
-            return null;
-        }
+    public JTextField getjTextTarifJamMotor() {
+        return jTextTarifJamMotor;
     }
 
-    public Float getjTextTarifJamMobil() {
-        try {
-            return Float.valueOf(jTextTarifJamMobil.getText());
-        } catch (Exception e) {
-            return null;
-        }
+    public JTextField getjTextTarifJamMobil() {
+        return jTextTarifJamMobil;
     }
 
-    public Float getjTextTarifJamMotor() {
-        try {
-            return Float.valueOf(jTextTarifJamMotor.getText());
-        } catch (Exception e) {
-            return null;
-        }
+    public JTextField getjTextKapasitasMobil() {
+        return jTextKapasitasMobil;
     }
 
     public JButton getjButtonKembali() {
@@ -414,11 +439,11 @@ public class PengaturanView extends javax.swing.JDialog {
     }
     
     public void setEditable(String kendaraan, boolean b){
-        if (kendaraan == "Motor"){
+        if (kendaraan.equals("Motor")){
             jTextTarifAwalMotor.setEditable(b);
             jTextTarifJamMotor.setEditable(b);
             jTextKapasitasMotor.setEditable(b);
-        }else if (kendaraan == "Mobil") {
+        }else if (kendaraan.equals("Mobil")) {
             jTextTarifAwalMobil.setEditable(b);
             jTextTarifJamMobil.setEditable(b);
             jTextKapasitasMobil.setEditable(b);

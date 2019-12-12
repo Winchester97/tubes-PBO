@@ -16,9 +16,9 @@ import sistemparkir.model.MotorModel;
  * @author Ammar Amri
  */
 public class PengaturanController extends MouseAdapter implements ActionListener{
-    private PengaturanView pengaturan;
-    private MotorModel modelPengaturanMotor;
-    private MobilModel modelPengaturanMobil;
+    private final PengaturanView pengaturan;
+    private final MotorModel modelPengaturanMotor;
+    private final MobilModel modelPengaturanMobil;
 
     private int xx,xy;
     

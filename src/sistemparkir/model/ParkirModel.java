@@ -14,11 +14,11 @@ public class ParkirModel {
     private Connection konek;
     private Statement st;
     private ResultSet rs;
-    private MotorModel motor;
-    private MobilModel mobil;
+    private final MotorModel motor;
+    private final MobilModel mobil;
     private int jumlahMotor,jumlahMobil,kapasitasMobil,kapasitasMotor;
-    private DecimalFormat rupiah;
-    private DecimalFormatSymbols formatRp;
+    private final DecimalFormat rupiah;
+    private final DecimalFormatSymbols formatRp;
 
     public ParkirModel() {
         this.mobil = new MobilModel();

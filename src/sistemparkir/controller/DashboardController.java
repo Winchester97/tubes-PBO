@@ -12,6 +12,9 @@ import sistemparkir.view.DashboardView;
  * @author Ammar Amri
  */
 public class DashboardController extends MouseAdapter{
+    private ParkirController parkirController;
+    private PendapatanController pendapatanController;
+    private PengaturanController pengaturanController;
     private final DashboardView dashboard;
     private final JPanel parkir;
     private final JPanel pendapatan;
@@ -77,15 +80,15 @@ public class DashboardController extends MouseAdapter{
             if (!DatabaseMySQL.isConnect()) {
                 JOptionPane.showMessageDialog(dashboard, "Gagal Terkoneksi dengan database","DATABASE FAILED",JOptionPane.ERROR_MESSAGE);
             }else{
-                new PengaturanController();
+                pengaturanController = new PengaturanController();
             }
         }else if (source.equals(parkir)) {
-            new ParkirController();
+            parkirController = new ParkirController();
         }else if (source.equals(pendapatan)) {
             if (!DatabaseMySQL.isConnect()) {
                 JOptionPane.showMessageDialog(dashboard, "Gagal Terkoneksi dengan database","DATABASE FAILED",JOptionPane.ERROR_MESSAGE);
             }else{
-                new PendapatanController();
+                pendapatanController = new PendapatanController();
             }
         }
     }

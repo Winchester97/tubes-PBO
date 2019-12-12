@@ -25,15 +25,17 @@ import sistemparkir.view.PendapatanView;
  * @author Ammar Amri
  */
 public class PendapatanController implements ActionListener{
-    private PendapatanView pendapatan = new PendapatanView();
+    private PendapatanView pendapatan;
     private ArrayList<PendapatanModel> pendapatanArrayList;
     private Connection konek;
     private Statement st;
     private ResultSet rs;
-    private DecimalFormat rupiah = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+    private DecimalFormat rupiah;
 
     
     public PendapatanController() {
+        this.pendapatan = new PendapatanView();
+        this.rupiah = (DecimalFormat) DecimalFormat.getCurrencyInstance();
         pendapatan.setLocationRelativeTo(null);
         pendapatan.setListener(this);
         initView();
@@ -47,7 +49,6 @@ public class PendapatanController implements ActionListener{
     public void actionPerformed(ActionEvent event) {
         Object source = event.getActionCommand();
         if (source.equals("OK")) {
-            System.out.println("OK");
             DefaultTableModel table = (DefaultTableModel) pendapatan.getjTableBulan().getModel();
             int rowCount = table.getRowCount();
             for (int i = rowCount - 1; i >= 0; i--) {
@@ -65,13 +66,13 @@ public class PendapatanController implements ActionListener{
         }
         pendapatan.getjComboTahun().setSelectedItem(""+tahun);
         pendapatan.getjComboBulan().setSelectedIndex(bulan);
-        tampil_harian();
-        tampil_bulanan();
         DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
         formatRp.setCurrencySymbol("Rp ");
         formatRp.setMonetaryDecimalSeparator(',');
         formatRp.setGroupingSeparator('.');
         rupiah.setDecimalFormatSymbols(formatRp);
+        tampil_harian();
+        tampil_bulanan();
         
     }
     
@@ -90,6 +91,7 @@ public class PendapatanController implements ActionListener{
         ArrayList<PendapatanModel> PendapatanArrayList = getData("bulanan");
         if (PendapatanArrayList == null) {
             JOptionPane.showMessageDialog(pendapatan, "Data pendaptan bulan "+bln+" tahun "+th+" kosong!"); 
+            pendapatan.getjTextFieldPdptnBulan().setText("");
         }else{
             setData(PendapatanArrayList, "bulanan");
         }            
@@ -170,7 +172,7 @@ public class PendapatanController implements ActionListener{
             konek = DatabaseMySQL.getConnection();
             st = konek.createStatement();
             rs = st.executeQuery(query);
-            while (rs.next()) {                        
+            while (rs.next()) { 
                 String biaya = rs.getString("total_biaya");
                 long biaya2 = Long.parseLong(biaya);
                 biaya = rupiah.format(biaya2);

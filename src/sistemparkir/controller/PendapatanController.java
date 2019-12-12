@@ -25,12 +25,12 @@ import sistemparkir.view.PendapatanView;
  * @author Ammar Amri
  */
 public class PendapatanController implements ActionListener{
-    private PendapatanView pendapatan;
+    private final PendapatanView pendapatan;
     private ArrayList<PendapatanModel> pendapatanArrayList;
     private Connection konek;
     private Statement st;
     private ResultSet rs;
-    private DecimalFormat rupiah;
+    private final DecimalFormat rupiah;
 
     
     public PendapatanController() {

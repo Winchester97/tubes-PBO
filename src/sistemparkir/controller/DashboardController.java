@@ -12,15 +12,21 @@ import sistemparkir.view.DashboardView;
  * @author Ammar Amri
  */
 public class DashboardController extends MouseAdapter{
-    private DashboardView dashboard = new DashboardView();
-    private JPanel parkir = dashboard.getParkir();
-    private JPanel pendapatan = dashboard.getPendapatan();
-    private JPanel pengaturan = dashboard.getPengaturan();
-    private JPanel keluar = dashboard.getKeluar();
-    private JPanel topPanel = dashboard.getTopPanel();
+    private final DashboardView dashboard;
+    private final JPanel parkir;
+    private final JPanel pendapatan;
+    private final JPanel pengaturan;
+    private final JPanel keluar;
+    private final JPanel topPanel;
     private int xx,xy;
 
     public DashboardController() {
+        this.dashboard = new DashboardView();
+        this.parkir = dashboard.getParkir();
+        this.pendapatan = dashboard.getPendapatan();
+        this.pengaturan = dashboard.getPengaturan();
+        this.keluar = dashboard.getKeluar();
+        this.topPanel = dashboard.getTopPanel();
         dashboard.setLocationRelativeTo(null);
         dashboard.setListener(this);
         dashboard.setVisible(true);

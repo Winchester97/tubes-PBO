@@ -14,8 +14,26 @@ public class ParkirModel {
     private Connection konek;
     private Statement st;
     private ResultSet rs;
-    private MotorModel motor = new MotorModel();
-    private MobilModel mobil = new MobilModel();
+    private MotorModel motor;
+    private MobilModel mobil;
+    private int jumlahMotor,jumlahMobil,kapasitasMobil,kapasitasMotor;
+    private DecimalFormat rupiah;
+    private DecimalFormatSymbols formatRp;
+
+    public ParkirModel() {
+        this.mobil = new MobilModel();
+        this.motor = new MotorModel();
+        this.rupiah = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        this.formatRp = new DecimalFormatSymbols();
+        formatRp.setCurrencySymbol("Rp ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+        rupiah.setDecimalFormatSymbols(formatRp);
+        this.jumlahMobil = 0 ;
+        this.jumlahMotor = 0;
+        this.kapasitasMobil = mobil.getKapasitas();
+        this.kapasitasMotor = motor.getKapasitas();
+    }
     
     public boolean parkirMasuk(String nopol, String jenis){      
         var current_time = System.currentTimeMillis();
@@ -72,15 +90,20 @@ public class ParkirModel {
             konek = DatabaseMySQL.getConnection();
             st = konek.createStatement();
             rs = st.executeQuery(query);
+            this.jumlahMobil = this.jumlahMotor = 0;
             while (rs.next()) {                
                 String no_tiket = rs.getString("no_tiket");
                 String no_pol = rs.getString("no_polisi");
                 String jenis = rs.getString("jenis_kendaraan");
                 String jam_masuk = new SimpleDateFormat("HH:mm:ss").format(new Date(rs.getLong("waktu_masuk")));
                 String tgl_masuk = new SimpleDateFormat("dd-MM-yyyy").format(new Date(rs.getLong("waktu_masuk")));
-                
                 String [] data = {no_tiket, no_pol, jenis, tgl_masuk, jam_masuk};
                 masuk.addRow(data);
+                if (jenis.equals("Motor")) {
+                    this.jumlahMotor++;
+                }else{
+                    this.jumlahMobil++;
+                }
             }
             return masuk;
         } catch (Exception e) {
@@ -101,10 +124,9 @@ public class ParkirModel {
                     String jenis = rs.getString("jenis_kendaraan");
                     String tgl_keluar = new SimpleDateFormat("dd-MM-yyyy").format(new Date(rs.getLong("waktu_keluar")));
                     String jam_keluar = new SimpleDateFormat("HH:mm:ss").format(new Date(rs.getLong("waktu_keluar")));
-                    String biaya = rs.getString("biaya");
+                    String biaya = rupiah.format(rs.getInt("biaya"));
                     String [] data = {no_tiket,no_pol,jenis,tgl_keluar,jam_keluar,biaya};
-                    keluar.addRow(data);
-                    
+                    keluar.addRow(data); 
                 } return keluar;
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,12 +135,6 @@ public class ParkirModel {
     }
     
    public String[] ValidasiCari (String Cari) {
-       DecimalFormat rupiah = (DecimalFormat) DecimalFormat.getCurrencyInstance();
-       DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
-       formatRp.setCurrencySymbol("Rp ");
-       formatRp.setMonetaryDecimalSeparator(',');
-       formatRp.setGroupingSeparator('.');
-       rupiah.setDecimalFormatSymbols(formatRp);
        String query = "SELECT * FROM parkir_masuk WHERE no_polisi='"+Cari+"' OR no_tiket='"+Cari+"'";    
        try {
             konek = DatabaseMySQL.getConnection();
@@ -131,9 +147,7 @@ public class ParkirModel {
                 Long waktu_masuk = rs.getLong("waktu_masuk");
                 Long current_waktu = System.currentTimeMillis();
                 Long diff = current_waktu - waktu_masuk;
-                
-		long diffSeconds = diff / 1000 % 60;
-		long diffMinutes = diff / (60 * 1000) % 60;
+    		long diffMinutes = diff / (60 * 1000) % 60;
 		long diffHours = diff / (60 * 60 * 1000) % 24;
 		long diffDays = diff / (24 * 60 * 60 * 1000);
                 
@@ -171,6 +185,22 @@ public class ParkirModel {
        }
         return null;
    }
-   
-   
+
+    public int getJumlahMotor() {
+        return jumlahMotor;
+    }
+
+    public int getJumlahMobil() {
+        return jumlahMobil;
+    }
+
+    public int getKapasitasMotor() {
+        return kapasitasMotor;
+    }
+
+    public int getKapasitasMobil() {
+        return kapasitasMobil;
+    }
+    
+    
 }

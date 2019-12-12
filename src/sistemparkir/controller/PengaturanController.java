@@ -16,13 +16,16 @@ import sistemparkir.model.MotorModel;
  * @author Ammar Amri
  */
 public class PengaturanController extends MouseAdapter implements ActionListener{
-    private PengaturanView pengaturan = new PengaturanView();
-    private MotorModel modelPengaturanMotor = new MotorModel();
-    private MobilModel modelPengaturanMobil = new MobilModel();
+    private PengaturanView pengaturan;
+    private MotorModel modelPengaturanMotor;
+    private MobilModel modelPengaturanMobil;
 
     private int xx,xy;
     
     public PengaturanController() {
+        this.pengaturan = new PengaturanView();
+        this.modelPengaturanMotor = new MotorModel();
+        this.modelPengaturanMobil = new MobilModel();
         pengaturan.setLocationRelativeTo(null);
         initView();
         pengaturan.setListener((EventListener) this);
@@ -42,32 +45,48 @@ public class PengaturanController extends MouseAdapter implements ActionListener
             pengaturan.getjBtnEditMobil().setText("Simpan Mobil");
             pengaturan.setEditable("Mobil", true);
         }else if (source.equals("Simpan Motor")) {
-            Float tarifAwalMotor = pengaturan.getjTextTarifAwalMotor();
-            Float tarifJamMotor = pengaturan.getjTextTarifJamMotor();
-            int kapasitasMotor = pengaturan.getjTextKapasitasMotor();
+            String tarifAwalMotor = pengaturan.getjTextTarifAwalMotor().getText();
+            String tarifJamMotor = pengaturan.getjTextTarifJamMotor().getText();
+            String kapasitasMotor = pengaturan.getjTextKapasitasMotor().getText();
 
-            if (tarifAwalMotor == null || kapasitasMotor == 0 || tarifJamMotor == null) {
+            if (tarifAwalMotor.equals("") || kapasitasMotor.equals("") || tarifJamMotor.equals("")) {
                 JOptionPane.showMessageDialog(pengaturan, "Terdapat kolom yang kosong","ERROR",JOptionPane.ERROR_MESSAGE);
             }else{
-                modelPengaturanMotor.setTarifAwal(tarifAwalMotor);
-                modelPengaturanMotor.setTarifPerJam(tarifJamMotor);
-                modelPengaturanMotor.setKapasitas(kapasitasMotor);
-                pengaturan.getjBtnEditMotor().setText("Edit Motor");
-                pengaturan.setEditable("Motor", false);
+                try {
+                    Float tarifAwal = Float.parseFloat(tarifAwalMotor);
+                    Float tarifJam = Float.parseFloat(tarifJamMotor);
+                    int kapasitas = Integer.parseInt(kapasitasMotor);
+                    modelPengaturanMotor.setTarifAwal(tarifAwal);
+                    modelPengaturanMotor.setTarifPerJam(tarifJam);
+                    modelPengaturanMotor.setKapasitas(kapasitas);
+                    pengaturan.getjBtnEditMotor().setText("Edit Motor");
+                    pengaturan.setEditable("Motor", false);
+                    JOptionPane.showMessageDialog(pengaturan, "Data parkir motor berhasil diubah","SUKSES",JOptionPane.INFORMATION_MESSAGE);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(pengaturan, "Terdapat Format yang salah !","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
             }
         }else if (source.equals("Simpan Mobil")) {
-            Float tarifAwalMobil = pengaturan.getjTextTarifAwalMobil();
-            Float tarifJamMobil = pengaturan.getjTextTarifJamMobil();
-            int kapasitasMobil = pengaturan.getjTextKapasitasMobil();
+            String tarifAwalMobil = pengaturan.getjTextTarifAwalMobil().getText();
+            String tarifJamMobil = pengaturan.getjTextTarifJamMobil().getText();
+            String kapasitasMobil = pengaturan.getjTextKapasitasMobil().getText();
 
-            if (tarifAwalMobil == null || kapasitasMobil == 0 || tarifJamMobil == null) {
+            if ("".equals(tarifAwalMobil) || "".equals(kapasitasMobil) || "".equals(tarifJamMobil)) {
                 JOptionPane.showMessageDialog(pengaturan, "Terdapat kolom yang kosong","ERROR",JOptionPane.ERROR_MESSAGE);
             }else{
-                modelPengaturanMobil.setTarifAwal(tarifAwalMobil);
-                modelPengaturanMobil.setTarifPerJam(tarifJamMobil);
-                modelPengaturanMobil.setKapasitas(kapasitasMobil);
-                pengaturan.getjBtnEditMobil().setText("Edit Mobil");
-                pengaturan.setEditable("Mobil", false);
+                try {
+                    Float tarifAwal = Float.parseFloat(tarifAwalMobil);
+                    Float tarifJam = Float.parseFloat(tarifJamMobil);
+                    int kapasitas = Integer.parseInt(kapasitasMobil);
+                    modelPengaturanMobil.setTarifAwal(tarifAwal);
+                    modelPengaturanMobil.setTarifPerJam(tarifJam);
+                    modelPengaturanMobil.setKapasitas(kapasitas);
+                    pengaturan.getjBtnEditMobil().setText("Edit Mobil");
+                    pengaturan.setEditable("Mobil", false);
+                    JOptionPane.showMessageDialog(pengaturan, "Data parkir mobil berhasil diubah","SUKSES",JOptionPane.INFORMATION_MESSAGE);
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(pengaturan, "Terdapat Format yang salah !","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
             }       
         }
     }

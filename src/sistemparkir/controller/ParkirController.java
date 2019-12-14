@@ -14,10 +14,6 @@ import javax.swing.table.DefaultTableModel;
 import sistemparkir.model.ParkirModel;
 import sistemparkir.view.ParkirView;
 
-/**
- *
- * @author Ammar Amri
- */
 public class ParkirController extends MouseAdapter implements ActionListener{
     private ParkirView parkirView;
     private ParkirModel parkirModel;
@@ -121,6 +117,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
             resetMasuk();
             tampilTabelMasuk();
             cekKapasitas();
+        } else if (source.equals("KELUAR")){
+            
         }
     }
     

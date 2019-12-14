@@ -385,6 +385,7 @@ public class PengaturanView extends javax.swing.JDialog {
         this.jTextTarifJamMotor.setText(String.valueOf(jTextTarifJamMotor));
     }
     
+    
     public void setEditable(String kendaraan, boolean b){
         if (kendaraan.equals("Motor")){
             jTextTarifAwalMotor.setEditable(b);

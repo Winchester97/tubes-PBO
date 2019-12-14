@@ -585,6 +585,9 @@ public class ParkirView extends javax.swing.JDialog {
     private javax.swing.JPanel topPaneParkir;
     // End of variables declaration//GEN-END:variables
 
+    public JButton getJButtonKembali(){
+        return jButtonKembali;
+    }
     public JButton getjButtonKeluar() {
         return jButtonKeluar;
     }

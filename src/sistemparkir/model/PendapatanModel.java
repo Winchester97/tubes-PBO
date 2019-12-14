@@ -26,6 +26,12 @@ public class PendapatanModel {
     public String getBiaya() {
         return biaya;
     }
+
+    @Override
+    public String toString() {
+        return no_tiket+" | "+no_polisi+" | "+tgl_keluar+" | "+biaya+" | ";
+    }
+    
     
     
 }

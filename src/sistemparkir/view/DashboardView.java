@@ -5,10 +5,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.EventListener;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Ammar Amri
- */
+
 public class DashboardView extends javax.swing.JFrame {
 
     public DashboardView() {

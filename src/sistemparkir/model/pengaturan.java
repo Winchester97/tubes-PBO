@@ -1,9 +1,5 @@
 package sistemparkir.model;
 
-/**
- *
- * @author Ammar Amri
- */
 public interface pengaturan {
     
     public Float getTarifAwal();

@@ -1,10 +1,7 @@
 package sistemparkir.model;
 import java.sql.*;
 import sistemparkir.database.DatabaseMySQL;
-/**
- *
- * @author Ammar Amri
- */
+
 public class MotorModel implements pengaturan{
     private Connection konek;
     private Statement st;

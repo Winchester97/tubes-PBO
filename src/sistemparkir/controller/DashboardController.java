@@ -7,10 +7,6 @@ import javax.swing.JPanel;
 import sistemparkir.database.DatabaseMySQL;
 import sistemparkir.view.DashboardView;
 
-/**
- *
- * @author Ammar Amri
- */
 public class DashboardController extends MouseAdapter{
     private ParkirController parkirController;
     private PendapatanController pendapatanController;

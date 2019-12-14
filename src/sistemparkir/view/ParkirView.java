@@ -1,6 +1,7 @@
 package sistemparkir.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import java.util.EventListener;
 import javax.swing.ButtonGroup;
@@ -32,6 +33,7 @@ public class ParkirView extends javax.swing.JDialog {
         sidePane = new javax.swing.JPanel();
         jButtonKeluar = new javax.swing.JButton();
         jButtonMasuk = new javax.swing.JButton();
+        jButtonKembali = new javax.swing.JButton();
         card = new javax.swing.JPanel();
         masukPane = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -106,24 +108,35 @@ public class ParkirView extends javax.swing.JDialog {
 
         sidePane.setBackground(new java.awt.Color(204, 204, 255));
 
-        jButtonKeluar.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonKeluar.setBackground(new java.awt.Color(153, 153, 255));
         jButtonKeluar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonKeluar.setText("KELUAR");
         jButtonKeluar.setBorderPainted(false);
         jButtonKeluar.setIconTextGap(15);
 
-        jButtonMasuk.setBackground(new java.awt.Color(204, 204, 255));
+        jButtonMasuk.setBackground(new java.awt.Color(153, 153, 255));
         jButtonMasuk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonMasuk.setText("MASUK");
         jButtonMasuk.setBorderPainted(false);
         jButtonMasuk.setIconTextGap(15);
 
+        jButtonKembali.setBackground(new java.awt.Color(153, 153, 255));
+        jButtonKembali.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonKembali.setText("KEMBALI");
+        jButtonKembali.setBorderPainted(false);
+        jButtonKembali.setIconTextGap(15);
+
         javax.swing.GroupLayout sidePaneLayout = new javax.swing.GroupLayout(sidePane);
         sidePane.setLayout(sidePaneLayout);
         sidePaneLayout.setHorizontalGroup(
             sidePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButtonKeluar, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-            .addComponent(jButtonMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidePaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(sidePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonMasuk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonKeluar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonKembali, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
+                .addContainerGap())
         );
         sidePaneLayout.setVerticalGroup(
             sidePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,6 +145,8 @@ public class ParkirView extends javax.swing.JDialog {
                 .addComponent(jButtonMasuk, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
+                .addComponent(jButtonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -214,7 +229,7 @@ public class ParkirView extends javax.swing.JDialog {
         masukPane.setLayout(masukPaneLayout);
         masukPaneLayout.setHorizontalGroup(
             masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
             .addGroup(masukPaneLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(masukPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -383,7 +398,7 @@ public class ParkirView extends javax.swing.JDialog {
                                 .addComponent(jLabel6)
                                 .addGap(26, 26, 26)
                                 .addComponent(cariKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(jBtnParkirKeluar)
                         .addGap(18, 18, 18)
                         .addComponent(jBtnBersihkan)
@@ -525,6 +540,7 @@ public class ParkirView extends javax.swing.JDialog {
     private javax.swing.JButton jBtnCariKeluar;
     private javax.swing.JButton jBtnParkirKeluar;
     private javax.swing.JButton jButtonKeluar;
+    private javax.swing.JButton jButtonKembali;
     private javax.swing.JButton jButtonMasuk;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -688,16 +704,18 @@ public class ParkirView extends javax.swing.JDialog {
         jBtnCariKeluar.addActionListener((ActionListener) event);
         jBtnParkirKeluar.addActionListener((ActionListener) event);
         jBtnBersihkan.addActionListener((ActionListener) event);
+        jButtonKembali.addActionListener((ActionListener) event);
+        jButtonKembali.addMouseListener((MouseListener) event);
     }
     
      public void setColor(JButton btn)
      {
-         btn.setBackground(new java.awt.Color(153,153,255));
+         btn.setBackground(new java.awt.Color(102,102,255));
      }
 
      public void resetColor(JButton btn)
      {
-         btn.setBackground(new java.awt.Color(204,204,255));
+         btn.setBackground(new java.awt.Color(153,153,255));
      }
 }
 

@@ -1,10 +1,6 @@
 package sistemparkir.model;
 
 
-/**
- *
- * @author Ammar Amri
- */
 public class PendapatanModel {
     private String no_tiket,no_polisi,tgl_keluar,biaya;
 

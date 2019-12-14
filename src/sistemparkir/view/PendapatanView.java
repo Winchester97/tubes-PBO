@@ -7,10 +7,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Ammar Amri
- */
 public class PendapatanView extends javax.swing.JDialog {
 
     public PendapatanView() {

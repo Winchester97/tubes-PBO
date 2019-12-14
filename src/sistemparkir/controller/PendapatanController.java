@@ -20,10 +20,6 @@ import sistemparkir.database.DatabaseMySQL;
 import sistemparkir.model.PendapatanModel;
 import sistemparkir.view.PendapatanView;
 
-/**
- *
- * @author Ammar Amri
- */
 public class PendapatanController implements ActionListener{
     private final PendapatanView pendapatan;
     private ArrayList<PendapatanModel> pendapatanArrayList;

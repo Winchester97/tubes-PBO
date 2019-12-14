@@ -1,10 +1,6 @@
 package sistemparkir.model;
 
 
-/**
- *
- * @author Ammar Amri
- */
 public class PendapatanModel {
     private String no_tiket,no_polisi,tgl_keluar,biaya;
 
@@ -30,6 +26,12 @@ public class PendapatanModel {
     public String getBiaya() {
         return biaya;
     }
+
+    @Override
+    public String toString() {
+        return no_tiket+" | "+no_polisi+" | "+tgl_keluar+" | "+biaya+" | ";
+    }
+    
     
     
 }

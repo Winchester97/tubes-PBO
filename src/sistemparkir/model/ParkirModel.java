@@ -6,10 +6,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
 import sistemparkir.database.DatabaseMySQL;
-/**
- *
- * @author Ammar Amri
- */
+
 public class ParkirModel {
     private Connection konek;
     private Statement st;

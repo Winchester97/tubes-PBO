@@ -6,10 +6,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Ammar Amri
- */
 public class DatabaseMySQL {
     private static Connection connection = null;
     private static final String nama_db = "sistem_parkir";

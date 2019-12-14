@@ -14,10 +14,6 @@ import javax.swing.table.DefaultTableModel;
 import sistemparkir.model.ParkirModel;
 import sistemparkir.view.ParkirView;
 
-/**
- *
- * @author Ammar Amri
- */
 public class ParkirController extends MouseAdapter implements ActionListener{
     private ParkirView parkirView;
     private ParkirModel parkirModel;
@@ -121,6 +117,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
             resetMasuk();
             tampilTabelMasuk();
             cekKapasitas();
+        } else if (source.equals("KEMBALI")){
+            parkirView.dispose();
         }
     }
     
@@ -204,6 +202,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
             parkirView.setColor(masukBtn);
         }else if (source.equals(keluarBtn)) {
             parkirView.setColor(keluarBtn);
+        }else if (source.equals(parkirView.getJButtonKembali())) {
+            parkirView.setColor(parkirView.getJButtonKembali());
         }
     }
 
@@ -214,6 +214,8 @@ public class ParkirController extends MouseAdapter implements ActionListener{
             parkirView.resetColor(masukBtn);
         }else if (source.equals(keluarBtn)) {
             parkirView.resetColor(keluarBtn);
+        }else if (source.equals(parkirView.getJButtonKembali())) {
+            parkirView.resetColor(parkirView.getJButtonKembali());
         }
     }
     

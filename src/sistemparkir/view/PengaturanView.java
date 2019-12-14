@@ -7,10 +7,7 @@ import java.util.EventListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-/**
- *
- * @author Ammar Amri
- */
+
 public class PengaturanView extends javax.swing.JDialog {
 
     public PengaturanView() {
@@ -322,57 +319,7 @@ public class PengaturanView extends javax.swing.JDialog {
     private javax.swing.JTextField jTextTarifJamMotor;
     private javax.swing.JPanel topPanePengaturan;
     // End of variables declaration//GEN-END:variables
-
-
-//    public int getjTextKapasitasMobil() {
-//        try {
-//            return Integer.valueOf(jTextKapasitasMobil.getText());
-// 
-//        } catch (NumberFormatException e) {
-//            return 0;
-//        }
-//    }
-//
-//    public int getjTextKapasitasMotor() {
-//        try {
-//            return Integer.valueOf(jTextKapasitasMotor.getText());
-//       } catch (NumberFormatException e) {
-//            return 0;
-//        }
-//    }
-//
-//    public Float getjTextTarifAwalMobil() {
-//        try {
-//            return Float.valueOf(jTextTarifAwalMobil.getText());    
-//        } catch (NumberFormatException e) {
-//            return null;
-//        }
-//    }
-//
-//    public Float getjTextTarifAwalMotor() {
-//        try {
-//            return Float.valueOf(jTextTarifAwalMotor.getText());
-//        } catch (NumberFormatException e) {
-//            return null;
-//        }
-//    }
-//
-//    public Float getjTextTarifJamMobil() {
-//        try {
-//            return Float.valueOf(jTextTarifJamMobil.getText());
-//        } catch (NumberFormatException e) {
-//            return null;
-//        }
-//    }
-//
-//    public Float getjTextTarifJamMotor() {
-//        try {
-//            return Float.valueOf(jTextTarifJamMotor.getText());
-//        } catch (NumberFormatException e) {
-//            return null;
-//        }
-//    }
-    
+   
     public JTextField getjTextTarifAwalMotor() {
         return jTextTarifAwalMotor;
     }
@@ -437,6 +384,7 @@ public class PengaturanView extends javax.swing.JDialog {
     public void setjTextTarifJamMotor(Float jTextTarifJamMotor) {
         this.jTextTarifJamMotor.setText(String.valueOf(jTextTarifJamMotor));
     }
+    
     
     public void setEditable(String kendaraan, boolean b){
         if (kendaraan.equals("Motor")){
